@@ -1,0 +1,13 @@
+
+ed_anime.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ed_anime
+  rotate: false
+  xy: 2, 2
+  size: 1242, 1242
+  orig: 1242, 1242
+  offset: 0, 0
+  index: -1
