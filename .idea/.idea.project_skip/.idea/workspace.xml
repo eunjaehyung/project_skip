@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c295a1e5-1152-478c-bdc7-e53aab88a278" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/anime/ed_anime/ed_anime.atlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/anime/ed_anime/ed_anime.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/anime/ed_anime/ed_anime.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/anime/opening_anime/opening_anime.atlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/mini/sd_chara_1001.atlas" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/mini/sd_chara_1001.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/mini/sd_chara_1001.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Animation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/AnimationState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/AnimationStateData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Atlas.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/AtlasAttachmentLoader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/Attachment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/AttachmentLoader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/AttachmentType.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/BoundingBoxAttachment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/ClippingAttachment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/MeshAttachment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/PathAttachment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/PointAttachment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/RegionAttachment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Attachments/VertexAttachment.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/BlendMode.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Bone.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/BoneData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Event.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/EventData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/ExposedList.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/IConstraint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/IUpdatable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/IkConstraint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/IkConstraintData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Json.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/MathUtils.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/PathConstraint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/PathConstraintData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Skeleton.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/SkeletonBinary.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/SkeletonBounds.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/SkeletonClipping.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/SkeletonData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/SkeletonJson.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Skin.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Slot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/SlotData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/TransformConstraint.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/TransformConstraintData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/spine-csharp/Triangulator.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="534561222">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="cs" value="10" />
+          <entry key="csv" value="2" />
+          <entry key="json" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="C#" value="10" />
+          <entry key="JSON" value="3" />
+          <entry key="PLAIN_TEXT" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="cs" value="106" />
+          <entry key="json" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="C#" value="106" />
+          <entry key="JSON" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/RegionlessAttachmentLoader.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+              <folding>
+                <marker date="1554467814000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+                <marker date="1554467814000" expanded="true" signature="1843:1869" ph="..." />
+                <marker date="1554467814000" expanded="true" signature="1893:3265" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="1956:3263" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2026:2364" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2035:2360" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2066:2331" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2103:2324" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2166:2317" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2450:2578" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2512:2551" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2660:2784" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2718:2757" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2867:2915" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2984:3025" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="3096:3138" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="3215:3260" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Modules/TK2D/SpriteCollectionAttachmentLoader.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <marker date="1554467816000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/SpineAtlasAsset.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="211" column="35" selection-start-line="211" selection-start-column="35" selection-end-line="211" selection-end-column="35" />
+              <folding>
+                <marker date="1554467815000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+                <marker date="1554467815000" expanded="false" signature="1843:1933" ph="..." />
+                <marker date="1554467815000" expanded="true" signature="1957:8726" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="2177:7644" ph="{...}" />
+                <marker date="1554467815000" expanded="false" signature="2596:5244" ph="Runtime Instantiation" />
+                <marker date="1554467815000" expanded="true" signature="2628:2686" ph="/// Creates a runtime AtlasAsset ... " />
+                <marker date="1554467815000" expanded="true" signature="2802:3058" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="3062:3305" ph="/// Creates a runtime AtlasAsset. Only providing the textures is slower because it has to search for atlas page m ... " />
+                <marker date="1554467815000" expanded="true" signature="3454:4617" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="3708:3818" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="3984:4512" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="4124:4357" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="4221:4351" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="4621:4863" ph="/// Creates a runtime AtlasAsset. Only providing the textures is slower because it has to search for atlas page m ... " />
+                <marker date="1554467815000" expanded="true" signature="4994:5231" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="5262:5279" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="5313:5335" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="5443:6096" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="5471:5580" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="5633:5741" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="5787:5925" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="5947:6092" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="6194:7641" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="6287:7591" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="6311:6365" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="7041:7184" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="7699:8724" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="7793:7831" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="7882:8678" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="8022:8241" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="8059:8153" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="8194:8236" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="8267:8410" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="8576:8674" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Resources/anime/ed_anime/ed_anime.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="412" lean-forward="true" selection-start-column="412" selection-end-column="412" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Resources/mini/sd_chara_1001.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="1701" selection-start-column="1701" selection-end-column="1701" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Eyes/eyes.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="71" lean-forward="true" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Modules/Timeline/SpineAnimationState/SpineAnimationStateBehaviour.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
+              <folding>
+                <marker date="1554467815000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+                <marker date="1554467815000" expanded="false" signature="1872:2021" ph="..." />
+                <marker date="1554467815000" expanded="true" signature="2055:2534" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="2174:2531" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/AtlasAssetBase.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <marker date="1554467815000" expanded="false" signature="6:78" ph="..." />
+                <marker date="1554467815000" expanded="true" signature="102:435" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="161:433" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/SkeletonDataModifierAsset.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+              <folding>
+                <marker date="1554467814000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+                <marker date="1554467814000" expanded="false" signature="1843:1915" ph="..." />
+                <marker date="1554467814000" expanded="true" signature="1939:2193" ph="{...}" />
+                <marker date="1554467814000" expanded="true" signature="2129:2191" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/BlendModeMaterialsAsset.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+              <folding>
+                <marker date="1554467815000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+                <marker date="1554467815000" expanded="false" signature="1843:1962" ph="..." />
+                <marker date="1554467815000" expanded="true" signature="1986:5437" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="2150:5434" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="2378:2515" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="2687:4072" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="2824:4037" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="3002:4031" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="3375:3646" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="3743:4025" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="3852:4018" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="4115:5429" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="4503:4661" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="4753:5372" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="5017:5346" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="5186:5309" ph="{...}" />
+                <marker date="1554467815000" expanded="true" signature="5400:5425" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>SPLIT_RE</find>
+      <find>list</find>
+      <find>data</find>
+      <find>png</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/SpineAtlasAsset.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/BlendModeMaterialsAsset.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Test.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/SkeletonDataModifierAsset.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/CSVReader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/RegionlessAttachmentLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Modules/TK2D/SpriteCollectionAttachmentLoader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/AtlasAssetBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Modules/Timeline/SpineAnimationState/SpineAnimationStateBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Script/Test.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/CSVReader.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/mini/sd_chara_1001.json" />
+        <option value="$PROJECT_DIR$/Assets/Resources/anime/ed_anime/ed_anime.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="852" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="UnityExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="FileSystemExplorer" />
+      <pane id="UnityExplorer">
+        <option name="show-hidden-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="AttachmentLoader&#9;FILE&#9;file:///Users/eunjehyeong/project_skip/Assets/Spine/Runtime/spine-unity/Modules/TK2D/SpriteCollectionAttachmentLoader.cs" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="13988">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="13988" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor" />
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor &amp; Play" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c295a1e5-1152-478c-bdc7-e53aab88a278" name="Default Changelist" comment="" />
+      <created>1554565815452</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554565815452</updated>
+      <workItem from="1554565823630" duration="171000" />
+      <workItem from="1554566066691" duration="3210000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3381000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="852" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24964234" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.15394737" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="NuGet" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unit Tests" order="12" />
+      <window_info anchor="bottom" id="Terminal" order="13" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Errors In Solution" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Script/MasterParser.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/MasterTable/SampleCSVFile_2kb.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/MasterTable/MasterTable.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Test.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding>
+            <marker date="1554567744467" expanded="true" signature="6:133" ph="..." />
+            <marker date="1554567744467" expanded="true" signature="168:805" ph="{...}" />
+            <marker date="1554567744467" expanded="true" signature="240:724" ph="{...}" />
+            <marker date="1554567744467" expanded="true" signature="405:472" ph="{...}" />
+            <marker date="1554567744467" expanded="true" signature="782:803" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/CSVReader.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+          <folding>
+            <marker date="1554567894849" expanded="false" signature="6:130" ph="..." />
+            <marker date="1554567894849" expanded="true" signature="154:1603" ph="{...}" />
+            <marker date="1554567894849" expanded="true" signature="391:1601" ph="{...}" />
+            <marker date="1554567894849" expanded="true" signature="720:1573" ph="{...}" />
+            <marker date="1554567894849" expanded="true" signature="986:1533" ph="{...}" />
+            <marker date="1554567894849" expanded="true" signature="1272:1344" ph="{...}" />
+            <marker date="1554567894849" expanded="true" signature="1399:1471" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/spine-csharp/Attachments/AttachmentLoader.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Modules/Timeline/SpineAnimationState/SpineAnimationStateBehaviour.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <marker date="1554467815000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+            <marker date="1554467815000" expanded="false" signature="1872:2021" ph="..." />
+            <marker date="1554467815000" expanded="true" signature="2055:2534" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="2174:2531" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/AtlasAssetBase.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <marker date="1554467815000" expanded="false" signature="6:78" ph="..." />
+            <marker date="1554467815000" expanded="true" signature="102:435" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="161:433" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/SkeletonDataModifierAsset.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <marker date="1554467814000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+            <marker date="1554467814000" expanded="false" signature="1843:1915" ph="..." />
+            <marker date="1554467814000" expanded="true" signature="1939:2193" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2129:2191" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/BlendModeMaterialsAsset.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+          <folding>
+            <marker date="1554467815000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+            <marker date="1554467815000" expanded="false" signature="1843:1962" ph="..." />
+            <marker date="1554467815000" expanded="true" signature="1986:5437" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="2150:5434" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="2378:2515" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="2687:4072" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="2824:4037" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="3002:4031" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="3375:3646" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="3743:4025" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="3852:4018" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="4115:5429" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="4503:4661" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="4753:5372" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="5017:5346" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="5186:5309" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="5400:5425" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Modules/TK2D/SpriteCollectionAttachmentLoader.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1554467816000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/RegionlessAttachmentLoader.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+          <folding>
+            <marker date="1554467814000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+            <marker date="1554467814000" expanded="true" signature="1843:1869" ph="..." />
+            <marker date="1554467814000" expanded="true" signature="1893:3265" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="1956:3263" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2026:2364" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2035:2360" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2066:2331" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2103:2324" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2166:2317" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2450:2578" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2512:2551" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2660:2784" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2718:2757" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2867:2915" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="2984:3025" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="3096:3138" ph="{...}" />
+            <marker date="1554467814000" expanded="true" signature="3215:3260" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Spine/Runtime/spine-unity/Asset Types/SpineAtlasAsset.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="211" column="35" selection-start-line="211" selection-start-column="35" selection-end-line="211" selection-end-column="35" />
+          <folding>
+            <marker date="1554467815000" expanded="true" signature="0:1835" ph="/* Spine Runtimes Software License v2.5 ... */" />
+            <marker date="1554467815000" expanded="false" signature="1843:1933" ph="..." />
+            <marker date="1554467815000" expanded="true" signature="1957:8726" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="2177:7644" ph="{...}" />
+            <marker date="1554467815000" expanded="false" signature="2596:5244" ph="Runtime Instantiation" />
+            <marker date="1554467815000" expanded="true" signature="2628:2686" ph="/// Creates a runtime AtlasAsset ... " />
+            <marker date="1554467815000" expanded="true" signature="2802:3058" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="3062:3305" ph="/// Creates a runtime AtlasAsset. Only providing the textures is slower because it has to search for atlas page m ... " />
+            <marker date="1554467815000" expanded="true" signature="3454:4617" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="3708:3818" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="3984:4512" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="4124:4357" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="4221:4351" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="4621:4863" ph="/// Creates a runtime AtlasAsset. Only providing the textures is slower because it has to search for atlas page m ... " />
+            <marker date="1554467815000" expanded="true" signature="4994:5231" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="5262:5279" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="5313:5335" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="5443:6096" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="5471:5580" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="5633:5741" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="5787:5925" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="5947:6092" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="6194:7641" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="6287:7591" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="6311:6365" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="7041:7184" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="7699:8724" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="7793:7831" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="7882:8678" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="8022:8241" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="8059:8153" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="8194:8236" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="8267:8410" ph="{...}" />
+            <marker date="1554467815000" expanded="true" signature="8576:8674" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Eyes/eyes.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="71" lean-forward="true" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/mini/sd_chara_1001.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1701" selection-start-column="1701" selection-end-column="1701" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/anime/ed_anime/ed_anime.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="412" lean-forward="true" selection-start-column="412" selection-end-column="412" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
