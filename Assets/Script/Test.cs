@@ -9,26 +9,18 @@ public class Test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string file = "/Resources/MasterTable/MasterTable";
-        
-        string dir = Application.dataPath + file + ".csv";
-        if (!File.Exists(dir))
-        {
-            Debug.Log(file + "파일이 존재하지않습니다.");
-        }
-        
-        string source;
-        StreamReader sr = new StreamReader(dir);
-        source = sr.ReadToEnd();
-        sr.Close();
-        List<Dictionary<string, object>> contain = CSVReader.Read(source);
-        
-        Debug.Log(contain);
-    }
+        MasterManager.Instance.LoadTableDatas();
 
-    // Update is called once per frame
-    void Update()
-    {
+        object value = MasterManager.Instance.GetQuestionData(1, "title");
         
+        Debug.Log(value);
+        
+        object value1 = MasterManager.Instance.GetQuestionData(2, "title");
+        
+        Debug.Log(value1);
+        
+        object value2 = MasterManager.Instance.GetQuestionData(3, "title");
+        
+        Debug.Log(value2);
     }
 }

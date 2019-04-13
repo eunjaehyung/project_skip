@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
   m_Name: sd_chara_1001_SkeletonData
   m_EditorClassIdentifier: 
-  atlasAssets: []
+  atlasAssets:
+  - {fileID: 11400000, guid: ec776c64203d0456bad4fd630c9cc13d, type: 2}
   scale: 0.01
   skeletonJSON: {fileID: 4900000, guid: 094bf68163517485e93372aa9a1c5de9, type: 3}
   skeletonDataModifiers: []
