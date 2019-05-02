@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitlePanel : MonoBehaviour
 {
@@ -11,5 +12,10 @@ public class TitlePanel : MonoBehaviour
     public void SetLevel(int level)
     {
         _level = (LEVEL) level;
+    }
+
+    public void OnClickSkip()
+    {
+        SceneManager.LoadSceneAsync("SceneGame");
     }
 }

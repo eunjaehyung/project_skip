@@ -1,20 +1,33 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public Canvas Canvas;
     public Text TextAnswer;
+    public Text TextResult;
+    public TimerWidget timerWidget;
+    public GameResultPanel GameResultPanel;
     private int questionId;
     public SkipObject SkipObject;
     private int StepCount = 1;
     private List<GameObject> listAnswer = new List<GameObject>();
+    private List<GameResultPackege> ResultPackeges = new List<GameResultPackege>();
 
     void Awake()
     {
         MasterManager.Instance.LoadTableDatas();
+        
+        timerWidget.SetTime(20, () =>
+        {
+            Debug.Log("Time Out");
+        });
+        
+        timerWidget.StartCountDown();
         
         StartStage();
     }
@@ -22,7 +35,11 @@ public class GameManager : MonoBehaviour
     private void StartStage()
     {
         if (StepCount == 4)
-            StepCount = 1;
+        {
+            timerWidget.StopTime = true;
+            GameResultPanel.SetData(timerWidget.GetRemainTime().ToString(), "0");
+            return;
+        }
         
         object title = MasterManager.Instance.GetQuestionData(StepCount, "title");
         
@@ -66,12 +83,6 @@ public class GameManager : MonoBehaviour
 
     private void OnClickSkipEvent(int result)
     {
-        bool isSuccess = CheckAnswer(result);
-        
-        Debug.Log(isSuccess);
-        
-        StepCount++;
-
         for (int i = 0; i < listAnswer.Count; ++i)
         {
             Destroy(listAnswer[i]);
@@ -79,6 +90,43 @@ public class GameManager : MonoBehaviour
         
         listAnswer.Clear();
         
-        StartStage();
+        bool isSuccess = CheckAnswer(result);
+
+        GameResultPackege packege = new GameResultPackege()
+        {
+            Step = StepCount,
+            IsSuccess = isSuccess,
+            RemainTime = timerWidget.GetRemainTime(),
+            AnswerId = questionId,
+        };
+        
+        ResultPackeges.Add(packege);
+        
+        StepCount++;
+
+        TextResult.text = isSuccess ? "正解" : "失敗";
+        
+        StartCoroutine(FuncDelayEvent(1.5f, () =>
+        {
+            TextResult.text = "";
+            
+            StartStage();
+        }));
     }
+
+    private IEnumerator FuncDelayEvent(float delaySec, Action callback)
+    {
+        yield return new WaitForSeconds(delaySec);
+
+        callback();
+    }
+}
+
+public class GameResultPackege
+{
+    public int Step;
+    public bool IsSuccess;
+    public int AnswerId;
+    public float RemainTime;
+    public int Score;
 }
