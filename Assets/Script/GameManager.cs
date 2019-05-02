@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         {
             timerWidget.StopTime = true;
             GameResultPanel.SetData(timerWidget.GetRemainTime().ToString(), "0");
+            InfoManager.Instance.SetRecord(ResultPackeges);
             return;
         }
         
@@ -62,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     private void CreateSkipObject()
     {
-        List<Dictionary<string, object>> list = MasterManager.Instance.GetCulumnListForCulumnKey("stage", 1);
+        List<Dictionary<string, object>> list = MasterManager.Instance.GetCulumnListForCulumnKey("stage", InfoManager.Instance.GameLevel);
 
         for (int i = 0; i < list.Count; ++i)
         {

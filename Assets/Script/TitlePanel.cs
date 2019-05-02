@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class TitlePanel : MonoBehaviour
 {
-    public enum LEVEL { EASY, NORMAL, HARD }
+    public enum LEVEL { EASY = 1, NORMAL, HARD }
 
     private LEVEL _level;
 
     public void SetLevel(int level)
     {
+        InfoManager.Instance.GameLevel = level;
+        
         _level = (LEVEL) level;
     }
 
