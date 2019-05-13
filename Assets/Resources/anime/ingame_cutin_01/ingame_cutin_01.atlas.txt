@@ -1,0 +1,76 @@
+
+ingame_cutin_01.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+clear_text
+  rotate: true
+  xy: 474, 435
+  size: 912, 193
+  orig: 912, 193
+  offset: 0, 0
+  index: -1
+crecct_maru
+  rotate: false
+  xy: 915, 890
+  size: 456, 457
+  orig: 456, 457
+  offset: 0, 0
+  index: -1
+crecct_text
+  rotate: true
+  xy: 1673, 1344
+  size: 577, 244
+  orig: 577, 244
+  offset: 0, 0
+  index: -1
+ef_mumo
+  rotate: false
+  xy: 2, 1349
+  size: 960, 572
+  orig: 960, 572
+  offset: 0, 0
+  index: -1
+incorrect_batu
+  rotate: false
+  xy: 915, 434
+  size: 454, 454
+  orig: 454, 454
+  offset: 0, 0
+  index: -1
+incorrect_text
+  rotate: true
+  xy: 669, 545
+  size: 802, 244
+  orig: 802, 244
+  offset: 0, 0
+  index: -1
+qs_bubble_bg
+  rotate: false
+  xy: 2, 2
+  size: 407, 317
+  orig: 407, 317
+  offset: 0, 0
+  index: -1
+quesion_cutin_bg
+  rotate: true
+  xy: 2, 321
+  size: 1026, 470
+  orig: 1026, 470
+  offset: 0, 0
+  index: -1
+quesion_cutin_text02
+  rotate: false
+  xy: 964, 1363
+  size: 637, 98
+  orig: 637, 98
+  offset: 0, 0
+  index: -1
+timeup_text
+  rotate: false
+  xy: 964, 1463
+  size: 707, 458
+  orig: 707, 458
+  offset: 0, 0
+  index: -1
