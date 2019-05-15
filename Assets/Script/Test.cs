@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using Spine;
 using Spine.Unity;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class Test : MonoBehaviour
     void Start()
     {
         anim = GetComponent<SkeletonAnimation>();
-
+        
         
     }
 
