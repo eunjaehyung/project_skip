@@ -713,7 +713,7 @@ namespace Spine.Unity.Editor {
 				#if UNITY_2017_1_OR_NEWER
 				return previewRenderUtility.camera;
 				#else
-				return previewRenderUtility.m_Camera;
+				return previewRenderUtility.camera;
 				#endif
 			}
 		}
