@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\CSVReader.cs" />
+     <Compile Include="Assets\Script\FukidashiTest.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\GameResultPanel.cs" />
      <Compile Include="Assets\Script\InfoManager.cs" />
