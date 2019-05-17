@@ -17,6 +17,6 @@ public class FukidashiTest : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("fukidashi was tapped.");
+        Debug.Log("clicked.");
     }
 }
