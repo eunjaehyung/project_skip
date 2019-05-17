@@ -130,7 +130,6 @@
      <None Include="Assets\Resources\anime\opening_anime\opening_anime.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\FootSoldier\license.txt" />
      <None Include="Assets\Spine\version.txt" />
-     <None Include="Assets\Resources\Spine\mini\sd_chara_1001\sd_chara_1001.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Raggedy Spineboy\Raggedy Spineboy.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\whirlyblendmodes\whirlyblendmodes.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Dragon\dragon.atlas.txt" />
