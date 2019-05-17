@@ -1,0 +1,27 @@
+
+qb_test.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/crecct_maru
+  rotate: false
+  xy: 2, 2
+  size: 456, 457
+  orig: 456, 457
+  offset: 0, 0
+  index: -1
+images/incorrect_batu
+  rotate: false
+  xy: 460, 5
+  size: 454, 454
+  orig: 454, 454
+  offset: 0, 0
+  index: -1
+images/qs_bubble_bg
+  rotate: false
+  xy: 916, 142
+  size: 407, 317
+  orig: 407, 317
+  offset: 0, 0
+  index: -1
