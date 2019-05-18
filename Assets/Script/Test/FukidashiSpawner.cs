@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
@@ -25,7 +26,15 @@ public class FukidashiSpawner : MonoBehaviour
             // ※ BoneFollowerGraphicの実装上､Instantiate時にCanvasが親であると指定する必要がある.
             GameObject fukidashiObj = Instantiate(_fukidashiPrefab, _canvas.transform);
             SkeletonGraphic skeletonGraphic = fukidashiObj.GetComponent<SkeletonGraphic>();
+
             fukidashiObj.GetComponent<RectTransform>().anchoredPosition = coodinate;
+            var fukidashiController = fukidashiObj.GetComponent<FukidashiController>();
+            if (fukidashiController != null) {
+                fukidashiController.TouchCallback = (FukidashiController fukidashi) => {
+                    Debug.LogFormat("AnswerId:{0}", fukidashi.AnswerId);
+                    fukidashi.Success();
+                };
+            }
         }
     }
 }

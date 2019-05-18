@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,17 @@ public class FukidashiController : MonoBehaviour
     private const string AnimNameMaru = "maru";
     private const string AnimNameBatu = "batu";
 
-    private int _answerId = System.Int32.MaxValue;
+    private uint _answerId = Int32.MaxValue;
+    public uint AnswerId
+    {
+        get { return _answerId; }
+    }
+
+    private Action<FukidashiController> _touchCallback = null;
+    public Action<FukidashiController> TouchCallback
+    {
+        set { _touchCallback = value; }
+    }
 
     public void Start()
     {
@@ -22,6 +33,18 @@ public class FukidashiController : MonoBehaviour
         InitAnimationStateCallbacks();
 
         skeletonGraphic.AnimationState.SetAnimation(0, AnimNameFukidashi, true);
+    }
+
+    // このオブジェクトに対する正解時の動作を適用する.
+    public void Success()
+    {
+        GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, AnimNameMaru, false);
+    }
+
+    // このオブジェクトに対する不正解時の動作を適用する.
+    public void Fail()
+    {
+        GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, AnimNameBatu, false);
     }
 
     public void SetData(Dictionary<string, object> dict)
@@ -33,15 +56,14 @@ public class FukidashiController : MonoBehaviour
             texts[0].text = dict["title"].ToString();
         }
 
-        _answerId = (int)dict["answer_id"];
+        _answerId = (uint)dict["answer_id"];
     }
 
     public void OnClick()
     {
-        // TODO: 後ほど実装する.
-
-        // SkeletonGraphic skeletonGraphic = GetComponent<SkeletonGraphic>();
-        // skeletonGraphic.AnimationState.SetAnimation(0, AnimNameMaru, false);
+        if (_touchCallback != null) {
+            _touchCallback(this);
+        }
     }
 
     // 各種アニメーションコールバックの初期化.
@@ -61,12 +83,9 @@ public class FukidashiController : MonoBehaviour
         // http://ja.esotericsoftware.com/spine-unity-events
         skeletonGraphic.AnimationState.Complete += (Spine.TrackEntry trackEntry) => {
             Debug.LogFormat("Animation complete! Name:{0}", trackEntry.Animation.Name);
-            if (trackEntry.Animation.Name == AnimNameMaru) {
+            if (trackEntry.Animation.Name == AnimNameMaru ||
+                trackEntry.Animation.Name == AnimNameBatu) {
                 gameObject.SetActive(false);
-            }
-            if (trackEntry.Animation.Name == AnimNameBatu) {
-                transform.GetChild(0).gameObject.SetActive(true);
-                skeletonGraphic.AnimationState.SetAnimation(0, AnimNameFukidashi, true);
             }
         };
     }
