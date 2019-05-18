@@ -13,6 +13,7 @@ public class FukidashiTest : MonoBehaviour
     {
         SkeletonGraphic skeletonGraphic = GetComponent<SkeletonGraphic>();
         skeletonGraphic.AnimationState.SetAnimation(0, _animationName, true);
+        Debug.LogFormat("Start Animation ! {0}", _animationName);
     }
 
     public void OnClick()
