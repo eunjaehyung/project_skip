@@ -4,130 +4,157 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Spine.Unity;
 
 public class GameManager : MonoBehaviour
 {
-    public Canvas Canvas;
-    public Text TextAnswer;
-    public Text TextResult;
-    public TimerWidget timerWidget;
-    public GameResultPanel GameResultPanel;
-    private int questionId;
-    public SkipObject SkipObject;
-    private int StepCount = 1;
-    private List<GameObject> listAnswer = new List<GameObject>();
-    private List<GameResultPackege> ResultPackeges = new List<GameResultPackege>();
+    // 次のステップ開始までの遅延時間 ※正否アニメーションの尺の違いにより､2パターン用意している.
+    private const float NextStepDelayTimeSuccess = 3.5f;
+    private const float NextStepDelayTimeFail = 1.5f;
 
-    void Awake()
+    // このゲームの最大時間 ※この秒以上経過した場合､ゲーム終了.
+    private const float InGameMaxTime = 20.0f;
+
+    // 吹き出しプレハブ.
+    [SerializeField]
+    private GameObject _fukidashiPrefab = null;
+
+    // 各種UIオブジェクト.
+    [SerializeField]
+    private Canvas _canvas = null;
+    [SerializeField]
+    private Text _textStepTitle = null;
+    [SerializeField]
+    private TimerWidget _timerWidget = null;
+    [SerializeField]
+    private GameResultPanel _gameResultPanel = null;
+
+
+    // 現在のステップ.
+    private uint _currentStep = 1;
+
+    // 現在のステップにおける､正解のAnswerId.
+    private uint _currentStepAnswerId;
+
+    // 現在のステップにおける､吹き出しオブジェクトのリスト.
+    private List<FukidashiController> _fukidashiList = new List<FukidashiController>(){};
+
+    // 各ステップの結果情報のリスト.
+    private List<StepResult> _stepResultList = new List<StepResult>();
+
+
+    public void Start()
+    {
+        Debug.Assert(_fukidashiPrefab != null);
+        Debug.Assert(_canvas          != null);
+        Debug.Assert(_textStepTitle   != null);
+        Debug.Assert(_timerWidget     != null);
+        Debug.Assert(_gameResultPanel != null);
+    }
+
+    public void Awake()
     {
         MasterManager.Instance.LoadTableDatas();
         
-        timerWidget.SetTime(20, () =>
-        {
-            Debug.Log("Time Out");
-        });
+        // TODO: タイムアウト時の終了処理を､後ほど実装する.
+        _timerWidget.SetTime((int)InGameMaxTime, () => Debug.Log("Time Out"));
         
-        timerWidget.StartCountDown();
+        _timerWidget.StartCountDown();
         
-        StartStage();
+        StartStep(_currentStep);
     }
 
-    private void StartStage()
+    // 各ステップの開始時処理を行う.
+    private void StartStep(uint step)
     {
-        if (StepCount == 4)
+        if (step == 4)
         {
-            timerWidget.StopTime = true;
-            GameResultPanel.SetData(timerWidget.GetRemainTime().ToString(), "0");
-            InfoManager.Instance.SetRecord(ResultPackeges);
+            _timerWidget.StopTime = true;
+            _gameResultPanel.SetData(_timerWidget.GetRemainTime().ToString(), "0");
+            InfoManager.Instance.SetRecord(_stepResultList);
             return;
         }
         
-        object title = MasterManager.Instance.GetQuestionData(StepCount, "title");
+        object title = MasterManager.Instance.GetQuestionData((int)step, "title");
         
-        questionId = (int)MasterManager.Instance.GetQuestionData(StepCount, "answer_id");
+        _currentStepAnswerId = (uint)(int)(MasterManager.Instance.GetQuestionData((int)step, "answer_id"));
 
-        TextAnswer.text = title.ToString();
+        _textStepTitle.text = title.ToString();
         
-        CreateSkipObject();
-    }
-    
-    private bool CheckAnswer(int answer)
-    {
-        return questionId == answer;
+        CreateFukidashiObjects(step);
     }
 
-    private void GetAnswerList()
-    {
-        MasterManager.Instance.GetQuestionData(StepCount, "title");
-    }
-
-    private void CreateSkipObject()
+    // 各ステップにおける､吹き出しオブジェクトの生成を行う.
+    private void CreateFukidashiObjects(uint step)
     {
         List<Dictionary<string, object>> list = MasterManager.Instance.GetCulumnListForCulumnKey("stage", InfoManager.Instance.GameLevel);
 
         for (int i = 0; i < list.Count; ++i)
         {
-            if (list[i]["step"].ToString() != StepCount.ToString())
+            if (list[i]["step"].ToString() != step.ToString()) {
                 continue;
-            
-            GameObject skipObj = Instantiate(SkipObject.gameObject, Canvas.transform);
-        
-            SkipObject skip = skipObj.GetComponent<SkipObject>();
+            }
 
-            skip.SetData(list[i]);
-
-            skip.ClickCallback = OnClickSkipEvent;
             
-            listAnswer.Add(skipObj);
+            GameObject fukidashiGameObj = Instantiate(_fukidashiPrefab, _canvas.transform);
+            FukidashiController fukidashiObj = fukidashiGameObj.GetComponent<FukidashiController>();
+            Debug.Assert(fukidashiObj != null);
+
+            fukidashiObj.SetMasterData(list[i]);
+            fukidashiObj.TouchCallback = OnTouchFukidashiObject;
+
+            _fukidashiList.Add(fukidashiObj);
         }
     }
 
-    private void OnClickSkipEvent(int result)
+    // 吹き出しオブジェクトタッチ時処理.
+    private void OnTouchFukidashiObject(FukidashiController fukidashiObj)
     {
-        for (int i = 0; i < listAnswer.Count; ++i)
-        {
-            Destroy(listAnswer[i]);
+        if (fukidashiObj.HasTouched) {
+            return;
         }
-        
-        listAnswer.Clear();
-        
-        bool isSuccess = CheckAnswer(result);
 
-        GameResultPackege packege = new GameResultPackege()
+        // 正否を判定.
+        bool isSuccess = (_currentStepAnswerId == (int)fukidashiObj.AnswerId);
+
+        // 正否に応じたアニメーションetcを実行.
+        if (isSuccess) {
+            fukidashiObj.Success();
+        } else {
+            fukidashiObj.Fail();
+        }
+
+        // 現在のステップの吹き出しは削除.
+        foreach (FukidashiController fukidashi in _fukidashiList) {
+            if (fukidashi.AnswerId == fukidashiObj.AnswerId) {
+                // ※タッチした吹き出しは削除しない(各種アニメーションなどさせるため).
+                continue;
+            }
+            Destroy(fukidashi.gameObject);
+        }
+        _fukidashiList.Clear();
+        
+        // 現在のステップの結果を保存しておく.
+        StepResult packege = new StepResult()
         {
-            Step = StepCount,
-            IsSuccess = isSuccess,
-            RemainTime = timerWidget.GetRemainTime(),
-            AnswerId = questionId,
+            Step       = _currentStep,
+            IsSuccess  = isSuccess,
+            RemainTime = _timerWidget.GetRemainTime(),
+            AnswerId   = fukidashiObj.AnswerId,
         };
-        
-        ResultPackeges.Add(packege);
-        
-        StepCount++;
+        _stepResultList.Add(packege);
 
-        TextResult.text = isSuccess ? "正解" : "失敗";
-        
-        StartCoroutine(FuncDelayEvent(1.5f, () =>
-        {
-            TextResult.text = "";
-            
-            StartStage();
-        }));
+        // 次のステップを開始する.
+        _currentStep++;
+        StartCoroutine(FuncDelayEvent(
+            (isSuccess) ? NextStepDelayTimeSuccess : NextStepDelayTimeFail,
+            () => StartStep(_currentStep)
+        ));
     }
 
     private IEnumerator FuncDelayEvent(float delaySec, Action callback)
     {
         yield return new WaitForSeconds(delaySec);
-
         callback();
     }
-}
-
-public class GameResultPackege
-{
-    public int Step;
-    public bool IsSuccess;
-    public int AnswerId;
-    public float RemainTime;
-    public int Score;
 }

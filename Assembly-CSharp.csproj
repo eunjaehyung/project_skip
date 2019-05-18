@@ -59,6 +59,7 @@
      <Compile Include="Assets\Script\InfoManager.cs" />
      <Compile Include="Assets\Script\MasterManager.cs" />
      <Compile Include="Assets\Script\SceneGame\FukidashiController.cs" />
+     <Compile Include="Assets\Script\SceneGame\StepResult.cs" />
      <Compile Include="Assets\Script\SkipObject.cs" />
      <Compile Include="Assets\Script\SpineSample.cs" />
      <Compile Include="Assets\Script\Test.cs" />

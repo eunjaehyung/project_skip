@@ -23,7 +23,7 @@ public class InfoManager : MonoBehaviour
     public int GameLevel = 1;
     public GameRecord GameRecord = new GameRecord();
 
-    public void SetRecord(List<GameResultPackege> data)
+    public void SetRecord(List<StepResult> data)
     {
         GameRecord.listRecord.AddRange(data);
     }
@@ -31,5 +31,5 @@ public class InfoManager : MonoBehaviour
 
 public class GameRecord
 {
-    public List<GameResultPackege> listRecord = new List<GameResultPackege>();
+    public List<StepResult> listRecord = new List<StepResult>();
 }
