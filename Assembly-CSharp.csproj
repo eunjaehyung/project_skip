@@ -59,7 +59,6 @@
      <Compile Include="Assets\Script\SceneGame\GameManager.cs" />
      <Compile Include="Assets\Script\SceneGame\GameResultPanel.cs" />
      <Compile Include="Assets\Script\SceneGame\MasterManager.cs" />
-     <Compile Include="Assets\Script\SceneGame\SkipObject.cs" />
      <Compile Include="Assets\Script\SceneGame\StepResult.cs" />
      <Compile Include="Assets\Script\SceneGame\TimerWidget.cs" />
      <Compile Include="Assets\Script\SceneTitle\TitlePanel.cs" />
@@ -129,14 +128,14 @@
      <None Include="Assets\Spine Examples\Spine Skeletons\Stretchyman\stretchyman-diffuse-pma.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Raptor\raptor.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\spineboy-unity\spineboy.atlas.txt" />
-     <None Include="Assets\Resources\anime\ed_anime\ed_anime.atlas.txt" />
-     <None Include="Assets\Resources\anime\opening_anime\opening_anime.atlas.txt" />
+     <None Include="Assets\Resources\Spine\ed_anime\ed_anime.atlas.txt" />
+     <None Include="Assets\Resources\Spine\opening_anime\opening_anime.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\FootSoldier\license.txt" />
      <None Include="Assets\Spine\version.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Raggedy Spineboy\Raggedy Spineboy.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\whirlyblendmodes\whirlyblendmodes.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Dragon\dragon.atlas.txt" />
-     <None Include="Assets\Resources\anime\ingame_cutin_01\ingame_cutin_01.atlas.txt" />
+     <None Include="Assets\Resources\Spine\ingame_cutin_01\ingame_cutin_01.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\spineboy-pro\spineboy-pro.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Spineunitygirl\Doi.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Hero\hero-pro.atlas.txt" />
