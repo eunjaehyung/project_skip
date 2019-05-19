@@ -15,9 +15,8 @@ public class GameManager : MonoBehaviour
     // このゲームの最大時間 ※この秒以上経過した場合､ゲーム終了.
     private const float InGameMaxTime = 20.0f;
 
-    // キャラクターアニメーション管理クラス.
     [SerializeField]
-    private SkeletonAnimationsController _animationsController = null;
+    private SkeletonAnimationController _animationController = null;
 
     // 吹き出しプレハブ.
     [SerializeField]
@@ -76,6 +75,7 @@ public class GameManager : MonoBehaviour
             _timerWidget.StopTime = true;
             _gameResultPanel.SetData(_timerWidget.GetRemainTime().ToString(), "0");
             InfoManager.Instance.SetRecord(_stepResultList);
+            _animationController.SetAnimation(CharaAnimName.GameClear);
             return;
         }
         
@@ -138,11 +138,10 @@ public class GameManager : MonoBehaviour
         }
         _fukidashiList.Clear();
 
-        // MEMO: 正否ではなく､吹き出しに登録されたマスタをコンバートする形式にする.
-        //string str = Tags.SkeletonAnimationsController;
-        string charaAnimationName = (isSuccess) ? "train" : "pants";
-        _animationsController.SetAnimation(0, charaAnimationName, 1);
-        
+        // 背景キャラに指定のアニメーションをさせる.
+        string animationName = (isSuccess) ? CharaAnimName.Success : CharaAnimName.Fail;
+        _animationController.SetAnimation(animationName);
+
         // 現在のステップの結果を保存しておく.
         StepResult packege = new StepResult()
         {

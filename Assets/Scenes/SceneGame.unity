@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 140085012}
   - component: {fileID: 140085011}
   - component: {fileID: 140085010}
-  - component: {fileID: 140085013}
+  - component: {fileID: 140085009}
   m_Layer: 0
   m_Name: happy
   m_TagString: Untagged
@@ -294,6 +294,38 @@ Transform:
   m_Father: {fileID: 1385150248}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -360, z: 0}
+--- !u!114 &140085009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 140085007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37e719f9af5064e1d9db861dc5a04514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationInfoArray:
+  - _animationName: wait
+    _nextAnimationName: 
+    _isStartAnimation: 1
+    _trackIndex: 0
+    _isLoopAnimation: 1
+  - _animationName: happy
+    _nextAnimationName: wait
+    _isStartAnimation: 0
+    _trackIndex: 0
+    _isLoopAnimation: 0
+  - _animationName: pants
+    _nextAnimationName: wait
+    _isStartAnimation: 0
+    _trackIndex: 0
+    _isLoopAnimation: 0
+  - _animationName: skip
+    _nextAnimationName: wait
+    _isStartAnimation: 0
+    _trackIndex: 0
+    _isLoopAnimation: 0
 --- !u!114 &140085010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,18 +405,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 140085007}
   m_Mesh: {fileID: 0}
---- !u!114 &140085013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 140085007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37e719f9af5064e1d9db861dc5a04514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startAnimationName: wait
 --- !u!1 &273569557
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f3a94baf06c46a9af4eb1f0d65ca8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationsController: {fileID: 1323608447}
+  _animationController: {fileID: 140085009}
   _fukidashiPrefab: {fileID: 1181273419440658, guid: df23d83d135554b46af8343707ab0b4b,
     type: 2}
   _canvas: {fileID: 339537353}
@@ -535,7 +555,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 426102471}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &306033379
 GameObject:
@@ -1037,7 +1057,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1323608448}
   - {fileID: 293079060}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1352,48 +1371,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1323608446
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1323608448}
-  - component: {fileID: 1323608447}
-  m_Layer: 0
-  m_Name: SkeletonAnimationsController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1323608447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1323608446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a580c1a36dd64a1c86eda0e93b0419c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animations:
-  - {fileID: 140085010}
---- !u!4 &1323608448
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1323608446}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 426102471}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1339125395
 GameObject:
   m_ObjectHideFlags: 0
