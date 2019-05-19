@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     private int StepCount = 1;
     private List<GameObject> listAnswer = new List<GameObject>();
     private List<GameResultPackege> ResultPackeges = new List<GameResultPackege>();
+    public ActorScript actor;
 
     void Awake()
     {
@@ -106,6 +107,15 @@ public class GameManager : MonoBehaviour
         StepCount++;
 
         TextResult.text = isSuccess ? "正解" : "失敗";
+
+        if (isSuccess)
+        {
+            actor.SetAnimation("skip");
+        }
+        else
+        {
+            actor.SetAnimation("pants");
+        }
         
         StartCoroutine(FuncDelayEvent(1.5f, () =>
         {
