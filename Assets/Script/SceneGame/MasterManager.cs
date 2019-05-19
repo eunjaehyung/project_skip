@@ -18,9 +18,9 @@ public class MasterManager
             return instance;
         }
     }
-    
-    const string table_Question = "/Resources/MasterTable/QuestionTable";
-    const string table_answer = "/Resources/MasterTable/AnswerTable";
+
+    const string table_Question = "/MasterTable/QuestionTable";
+    const string table_answer = "/MasterTable/AnswerTable";
     List<Dictionary<string, object>> list_table_question = new List<Dictionary<string, object>>();
     List<Dictionary<string, object>> list_table_answer = new List<Dictionary<string, object>>();
 
@@ -32,7 +32,8 @@ public class MasterManager
     
     private List<Dictionary<string, object>> LoadTable(string path)
     {
-        string dir = Application.dataPath + path + ".csv";
+        string dir = Application.streamingAssetsPath + path + ".csv";
+
         if (!File.Exists(dir))
         {
             Debug.Log(path + "파일이 존재하지않습니다.");
@@ -46,7 +47,7 @@ public class MasterManager
 
     public object GetQuestionData(int id, string key)
     {
-         if (list_table_question.Count < id - 1)
+        if (list_table_question.Count < id - 1)
             return null;
 
         Dictionary<string, object> dic = list_table_question[id - 1];
