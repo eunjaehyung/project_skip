@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -102,7 +103,6 @@ public class GameManager : MonoBehaviour
                 continue;
             }
 
-            
             GameObject fukidashiGameObj = Instantiate(_fukidashiPrefab, _canvas.transform);
             FukidashiController fukidashiObj = fukidashiGameObj.GetComponent<FukidashiController>();
             Debug.Assert(fukidashiObj != null);
@@ -123,9 +123,10 @@ public class GameManager : MonoBehaviour
         _animCharaController.SetAnimation(CharaAnimName.GameClear);
 
         // クリアパネルの表示.
+        uint score = SumUpScore();
         _gameResultPanel.SetActive(true);
         _gameResultPanel.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, GameClearPanelAnimName.Start, false);
-        _gameResultPanel.GetComponent<GameResultPanel>().SetTexts(_timerWidget.GetRemainTime(), 0);
+        _gameResultPanel.GetComponent<GameResultPanel>().SetTexts(_timerWidget.GetRemainTime(), score);
     }
 
     // 吹き出しオブジェクトタッチ時処理.
@@ -160,12 +161,15 @@ public class GameManager : MonoBehaviour
         _animCharaController.SetAnimation(animationName);
 
         // 現在のステップの結果を保存しておく.
+        uint stage = (uint)(int)InfoManager.Instance.GameLevel;
+        uint score = (isSuccess) ? MasterManager.Instance.GetScoreFromQuestionData(stage, _currentStep) : 0;
         StepResult packege = new StepResult()
         {
             Step       = _currentStep,
             IsSuccess  = isSuccess,
             RemainTime = _timerWidget.GetRemainTime(),
             AnswerId   = fukidashiObj.AnswerId,
+            Score      = score,
         };
         _stepResultList.Add(packege);
 
@@ -175,6 +179,16 @@ public class GameManager : MonoBehaviour
             (isSuccess) ? NextStepDelayTimeSuccess : NextStepDelayTimeFail,
             () => StartStep(_currentStep)
         ));
+    }
+
+    private uint SumUpScore()
+    {
+        // ※ 失敗の場合はスコア0なので､実はWhereは不要.
+        uint score = (uint)_stepResultList
+                        .Where( result => result.IsSuccess )
+                        .Select( result => (int)result.Score )
+                        .Sum();
+        return score;
     }
 
     private IEnumerator FuncDelayEvent(float delaySec, Action callback)

@@ -11,7 +11,7 @@ public class GameResultPanel : MonoBehaviour
 
     public Text txtScore;
 
-    public void SetTexts(float time, int score)
+    public void SetTexts(float time, uint score)
     {
         txtTime.text = Math.Floor(time).ToString() + " sec";
         txtScore.text = score.ToString();

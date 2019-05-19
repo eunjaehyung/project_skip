@@ -66,15 +66,25 @@ public class MasterManager
         return dic[key];
     }
 
+    public uint GetScoreFromQuestionData(uint stage, uint step)
+    {
+        for (int i = 0; i < list_table_question.Count; ++i) {
+            uint curStage =  (uint)(int)list_table_question[i]["stage"];
+            uint curStep  =  (uint)(int)list_table_question[i]["step"];
+            if (stage == curStage && step == curStep) {
+                return (uint)(int)list_table_question[i]["score"];
+            }
+        }
+        return 0;
+    }
+
     public uint GetMaxStepFromQuestionData()
     {
         uint maxStep = 0;
         for (int i = 0; i < list_table_question.Count; ++i) {
             uint step =  (uint)(int)list_table_question[i]["step"];
-            // Debug.LogFormat("Step:{0}/{1}", step);
             maxStep = Math.Max(step, maxStep);
         }
-        Debug.LogFormat("MaxStep:{0}", maxStep);
         return maxStep;
     }
 
