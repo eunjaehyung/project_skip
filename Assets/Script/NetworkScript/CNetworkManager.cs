@@ -12,7 +12,7 @@ public class CNetworkManager : MonoBehaviour {
 
 	public MonoBehaviour message_receiver;
 
-	void Awake()
+	public void Awake()
 	{
 		this.received_msg = "";
 

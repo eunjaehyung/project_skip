@@ -14,7 +14,7 @@ public class NetworkTitle : MonoBehaviour {
 	}
 
 	Texture bg;
-	//CBattleRoom battle_room;
+	CBattleRoom battle_room;
 
 	CNetworkManager network_manager;
 	USER_STATE user_state;
@@ -25,8 +25,8 @@ public class NetworkTitle : MonoBehaviour {
 	void Start () {
 		this.user_state = USER_STATE.NOT_CONNECTED;
 		this.bg = Resources.Load("images/title_blue") as Texture;
-//		this.battle_room = GameObject.Find("BattleRoom").GetComponent<CBattleRoom>();
-//		this.battle_room.gameObject.SetActive(false);
+		this.battle_room = GameObject.Find("BattleRoom").GetComponent<CBattleRoom>();
+		this.battle_room.gameObject.SetActive(false);
 
 		this.network_manager = GameObject.Find("NetworkManager").GetComponent<CNetworkManager>();
 
@@ -77,25 +77,6 @@ public class NetworkTitle : MonoBehaviour {
 			yield return 0;
 		}
 	}
-	
-	void OnGUI()
-	{
-		switch (this.user_state)
-		{
-			case USER_STATE.NOT_CONNECTED:
-				break;
-
-			case USER_STATE.CONNECTED:
-				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), this.bg);
-				break;
-
-			case USER_STATE.WAITING_MATCHING:
-				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), this.bg);
-				GUI.DrawTexture(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 50, 200, 82),
-					this.waiting_img);
-				break;
-		}
-	}
 
 	public void on_connected()
 	{
@@ -114,8 +95,8 @@ public class NetworkTitle : MonoBehaviour {
 				{
 					byte player_index = msg.pop_byte();
 
-//					this.battle_room.gameObject.SetActive(true);
-//					this.battle_room.start_loading(player_index);
+					this.battle_room.gameObject.SetActive(true);
+					this.battle_room.start_loading(player_index);
 					gameObject.SetActive(false);
 				}
 				break;
