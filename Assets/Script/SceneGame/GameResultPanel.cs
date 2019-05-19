@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,13 +11,10 @@ public class GameResultPanel : MonoBehaviour
 
     public Text txtScore;
 
-    public void SetData(string time, string score)
+    public void SetTexts(float time, int score)
     {
-        txtTime.text = "TIME : " + time;
-
-        txtScore.text = "SCORE : " + score;
-        
-        gameObject.SetActive(true);
+        txtTime.text = Math.Floor(time).ToString() + " sec";
+        txtScore.text = score.ToString();
     }
 
     public void OnTouchPanel()

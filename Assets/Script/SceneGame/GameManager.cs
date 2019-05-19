@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     // クリア時パネル
     [SerializeField]
-    private SkeletonGraphic _clearPanel = null;
+    private GameObject _gameResultPanel = null;
 
     // 吹き出しプレハブ.
     [SerializeField]
@@ -34,8 +34,6 @@ public class GameManager : MonoBehaviour
     private Text _textStepTitle = null;
     [SerializeField]
     private TimerWidget _timerWidget = null;
-    [SerializeField]
-    private GameResultPanel _gameResultPanel = null;
 
 
     // 現在のステップ.
@@ -54,12 +52,11 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         Debug.Assert(_animCharaController != null);
-        Debug.Assert(_clearPanel          != null);
+        Debug.Assert(_gameResultPanel          != null);
         Debug.Assert(_fukidashiPrefab     != null);
         Debug.Assert(_canvas              != null);
         Debug.Assert(_textStepTitle       != null);
         Debug.Assert(_timerWidget         != null);
-        Debug.Assert(_gameResultPanel     != null);
     }
 
     public void Awake()
@@ -81,13 +78,19 @@ public class GameManager : MonoBehaviour
         if (step == 4)
         {
             _timerWidget.StopTime = true;
-            _gameResultPanel.SetData(_timerWidget.GetRemainTime().ToString(), "0");
+            
+            
+            
+            // TODO: この処理は要らないはず.
             InfoManager.Instance.SetRecord(_stepResultList);
+
+            // キャラのクリア演出.
             _animCharaController.SetAnimation(CharaAnimName.GameClear);
 
-            // TODO: 後で消す
-            _clearPanel.gameObject.SetActive(true);
-            _clearPanel.AnimationState.SetAnimation(0, "action", false);
+            // クリアパネルの表示.
+            _gameResultPanel.SetActive(true);
+            _gameResultPanel.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, GameClearPanelAnimName.Start, false);
+            _gameResultPanel.GetComponent<GameResultPanel>().SetTexts(_timerWidget.GetRemainTime(), 0);
 
             return;
         }

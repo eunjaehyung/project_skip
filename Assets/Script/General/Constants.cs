@@ -17,3 +17,8 @@ public class CharaAnimName
     // ゲームクリア時.
     public static readonly string GameClear = "skip";
 }
+
+public class GameClearPanelAnimName
+{
+    public static readonly string Start = "action";
+}
