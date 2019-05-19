@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     // このゲームの最大時間 ※この秒以上経過した場合､ゲーム終了.
     private const float InGameMaxTime = 20.0f;
 
+    // キャラクターアニメーション管理クラス.
+    [SerializeField]
+    private SkeletonAnimationsController _animationsController = null;
+
     // 吹き出しプレハブ.
     [SerializeField]
     private GameObject _fukidashiPrefab = null;
@@ -117,7 +121,7 @@ public class GameManager : MonoBehaviour
         // 正否を判定.
         bool isSuccess = (_currentStepAnswerId == (int)fukidashiObj.AnswerId);
 
-        // 正否に応じたアニメーションetcを実行.
+        // 正否に応じた吹き出しアニメーションetcを実行.
         if (isSuccess) {
             fukidashiObj.Success();
         } else {
@@ -133,6 +137,11 @@ public class GameManager : MonoBehaviour
             Destroy(fukidashi.gameObject);
         }
         _fukidashiList.Clear();
+
+        // MEMO: 正否ではなく､吹き出しに登録されたマスタをコンバートする形式にする.
+        //string str = Tags.SkeletonAnimationsController;
+        string charaAnimationName = (isSuccess) ? "train" : "pants";
+        _animationsController.SetAnimation(0, charaAnimationName, 1);
         
         // 現在のステップの結果を保存しておく.
         StepResult packege = new StepResult()

@@ -53,8 +53,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\General\Constants.cs" />
      <Compile Include="Assets\Script\General\CSVReader.cs" />
      <Compile Include="Assets\Script\General\InfoManager.cs" />
+     <Compile Include="Assets\Script\General\SkeletonAnimationsController.cs" />
+     <Compile Include="Assets\Script\General\SkeletonAnimationStart.cs" />
      <Compile Include="Assets\Script\SceneGame\FukidashiController.cs" />
      <Compile Include="Assets\Script\SceneGame\GameManager.cs" />
      <Compile Include="Assets\Script\SceneGame\GameResultPanel.cs" />
