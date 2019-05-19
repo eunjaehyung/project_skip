@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         
         StepCount++;
 
-        TextResult.text = isSuccess ? "正解" : "失敗";
+        TextResult.text = isSuccess ? "正解" : "不正解";
 
         if (isSuccess)
         {

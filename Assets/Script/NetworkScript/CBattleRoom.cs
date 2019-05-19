@@ -29,9 +29,6 @@ public class CBattleRoom : MonoBehaviour {
 	{
 	}
 
-	/// <summary>
-	/// °ÔÀÓ¹æ¿¡ ÀÔÀåÇÒ ¶§ È£ÃâµÈ´Ù. ¸®¼Ò½º ·ÎµùÀ» ½ÃÀÛÇÑ´Ù.
-	/// </summary>
 	public void start_loading(byte player_me_index)
 	{
 		clear();
@@ -43,11 +40,6 @@ public class CBattleRoom : MonoBehaviour {
 	}
 
 
-	/// <summary>
-	/// ÆÐÅ¶À» ¼ö½Å ÇßÀ» ¶§ È£ÃâµÊ.
-	/// </summary>
-	/// <param name="protocol"></param>
-	/// <param name="msg"></param>
 	void on_recv(CPacket msg)
 	{
 		PROTOCOL protocol_id = (PROTOCOL)msg.pop_protocol_id();
