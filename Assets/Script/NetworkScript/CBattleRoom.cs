@@ -56,7 +56,7 @@ public class CBattleRoom : MonoBehaviour {
 		{
 			case PROTOCOL.GAME_START:
 				on_game_start(msg);
-				Debug.Log("Multi Game Start");
+				network_manager.txtServerMsg.text = "Multi Game Start";
 				break;
 
 			case PROTOCOL.PLAYER_MOVED:

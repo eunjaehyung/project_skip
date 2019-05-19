@@ -4,17 +4,18 @@ using System.Collections;
 using FreeNet;
 using FreeNetUnity;
 using GameServer;
+using UnityEngine.UI;
 
 public class CNetworkManager : MonoBehaviour {
 
 	CFreeNetUnityService gameserver;
-	string received_msg;
+	public Text txtServerMsg;
 
 	public MonoBehaviour message_receiver;
 
 	public void Awake()
 	{
-		this.received_msg = "";
+		this.txtServerMsg = GameObject.Find("txtServerMsg").GetComponent<Text>();
 
 		this.gameserver = gameObject.AddComponent<CFreeNetUnityService>();
 
@@ -41,7 +42,7 @@ public class CNetworkManager : MonoBehaviour {
 			case NETWORK_EVENT.connected:
 				{
 					CLogManager.log("on connected");
-					this.received_msg += "on connected\n";
+					this.txtServerMsg.text = "on connected\n";
 
 					GameObject.Find("MainTitle").GetComponent<NetworkTitle>().on_connected();
 				}
@@ -49,7 +50,7 @@ public class CNetworkManager : MonoBehaviour {
 
 			case NETWORK_EVENT.disconnected:
 				CLogManager.log("disconnected");
-				this.received_msg += "disconnected\n";
+				this.txtServerMsg.text = "disconnected\n";
 				break;
 		}
 	}

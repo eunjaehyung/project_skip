@@ -19,7 +19,7 @@ public class NetworkTitle : MonoBehaviour {
 	CNetworkManager network_manager;
 	USER_STATE user_state;
 
-	Texture waiting_img;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -29,8 +29,6 @@ public class NetworkTitle : MonoBehaviour {
 		this.battle_room.gameObject.SetActive(false);
 
 		this.network_manager = GameObject.Find("NetworkManager").GetComponent<CNetworkManager>();
-
-		this.waiting_img = Resources.Load("images/waiting") as Texture;
 
 		this.user_state = USER_STATE.NOT_CONNECTED;
 		enter();
