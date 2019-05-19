@@ -15,8 +15,13 @@ public class GameManager : MonoBehaviour
     // このゲームの最大時間 ※この秒以上経過した場合､ゲーム終了.
     private const float InGameMaxTime = 20.0f;
 
+    // 背景キャラ.
     [SerializeField]
-    private SkeletonAnimationController _animationController = null;
+    private SkeletonAnimationController _animCharaController = null;
+
+    // クリア時パネル
+    [SerializeField]
+    private SkeletonGraphic _clearPanel = null;
 
     // 吹き出しプレハブ.
     [SerializeField]
@@ -48,11 +53,13 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        Debug.Assert(_fukidashiPrefab != null);
-        Debug.Assert(_canvas          != null);
-        Debug.Assert(_textStepTitle   != null);
-        Debug.Assert(_timerWidget     != null);
-        Debug.Assert(_gameResultPanel != null);
+        Debug.Assert(_animCharaController != null);
+        Debug.Assert(_clearPanel          != null);
+        Debug.Assert(_fukidashiPrefab     != null);
+        Debug.Assert(_canvas              != null);
+        Debug.Assert(_textStepTitle       != null);
+        Debug.Assert(_timerWidget         != null);
+        Debug.Assert(_gameResultPanel     != null);
     }
 
     public void Awake()
@@ -70,12 +77,18 @@ public class GameManager : MonoBehaviour
     // 各ステップの開始時処理を行う.
     private void StartStep(uint step)
     {
+        // TODO: 苦しくなってきたので､そろそろ別メソッドに切り出す.
         if (step == 4)
         {
             _timerWidget.StopTime = true;
             _gameResultPanel.SetData(_timerWidget.GetRemainTime().ToString(), "0");
             InfoManager.Instance.SetRecord(_stepResultList);
-            _animationController.SetAnimation(CharaAnimName.GameClear);
+            _animCharaController.SetAnimation(CharaAnimName.GameClear);
+
+            // TODO: 後で消す
+            _clearPanel.gameObject.SetActive(true);
+            _clearPanel.AnimationState.SetAnimation(0, "action", false);
+
             return;
         }
         
@@ -140,7 +153,7 @@ public class GameManager : MonoBehaviour
 
         // 背景キャラに指定のアニメーションをさせる.
         string animationName = (isSuccess) ? CharaAnimName.Success : CharaAnimName.Fail;
-        _animationController.SetAnimation(animationName);
+        _animCharaController.SetAnimation(animationName);
 
         // 現在のステップの結果を保存しておく.
         StepResult packege = new StepResult()

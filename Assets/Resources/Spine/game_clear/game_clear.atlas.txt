@@ -1,0 +1,27 @@
+
+game_clear.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+images/game_clear_bg
+  rotate: false
+  xy: 2, 536
+  size: 960, 960
+  orig: 960, 960
+  offset: 0, 0
+  index: -1
+images/game_clear_ef
+  rotate: false
+  xy: 2, 182
+  size: 1475, 352
+  orig: 1475, 352
+  offset: 0, 0
+  index: -1
+images/game_clear_tx
+  rotate: false
+  xy: 2, 2
+  size: 1161, 178
+  orig: 1161, 178
+  offset: 0, 0
+  index: -1

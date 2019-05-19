@@ -63,11 +63,13 @@ public class SkeletonAnimationController : MonoBehaviour
         _skeletonAnimation = GetComponent<SkeletonAnimation>();
 
         // 起動時アニメーションの設定.
-        var startAnimInfo = GetInfoWithCheck( info => info.IsStart );
-        _skeletonAnimation.AnimationState.SetAnimation(
-            startAnimInfo.TrackIndex,
-            startAnimInfo.AnimationName,
-            startAnimInfo.IsLoop);
+        var startAnimInfo = GetInfoOrNull( info => info.IsStart );
+        if (startAnimInfo != null) {
+            _skeletonAnimation.AnimationState.SetAnimation(
+                startAnimInfo.TrackIndex,
+                startAnimInfo.AnimationName,
+                startAnimInfo.IsLoop);
+        }
 
         // アニメーション遷移用のコールバックの登録.
         _skeletonAnimation.AnimationState.Complete += (TrackEntry trackEntry) => {
@@ -117,6 +119,15 @@ public class SkeletonAnimationController : MonoBehaviour
         if (infoArray.Count() <= 0 || infoArray.Count() >= 2) {
             Debug.LogFormat("Elements num was infalid. num:{0}", infoArray.Count());
             Debug.Assert(false);
+        }
+        return infoArray.ToArray()[0];
+    }
+
+    private AnimationInfo GetInfoOrNull(Func<AnimationInfo, bool> filterFunc)
+    {
+        var infoArray = _animationInfoArray.Where(filterFunc);
+        if (infoArray.Count() <= 0) {
+            return null;
         }
         return infoArray.ToArray()[0];
     }
