@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class SkipObject : MonoBehaviour
 {
+    public int PositionKey;
     public Text _text;
     private int answerId;
 
@@ -14,11 +15,16 @@ public class SkipObject : MonoBehaviour
 
     public void SetData(Dictionary<string, object> dicData)
     {
-        transform.position = new Vector3((int)dicData["x"], (int)dicData["y"], 0);
-
         _text.text = dicData["title"].ToString();
 
         answerId = (int)dicData["answer_id"];
+    }
+
+    public void SetPosition(int key, Vector3 pos)
+    {
+        PositionKey = key;
+        
+        transform.localPosition = pos;
     }
 
     public void OnClick()

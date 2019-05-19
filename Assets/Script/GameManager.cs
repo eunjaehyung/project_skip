@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,9 +16,23 @@ public class GameManager : MonoBehaviour
     private int questionId;
     public SkipObject SkipObject;
     private int StepCount = 1;
-    private List<GameObject> listAnswer = new List<GameObject>();
+    private List<SkipObject> listAnswer = new List<SkipObject>();
     private List<GameResultPackege> ResultPackeges = new List<GameResultPackege>();
     public ActorScript actor;
+
+    private Dictionary<int, Vector3> dicAnswerPossition = new Dictionary<int, Vector3>()
+    {
+        {1, new Vector3(0, 0, 0)},
+        {2, new Vector3(0, -203, 0)},
+        {3, new Vector3(0, -406, 0)},
+        {4, new Vector3(397, 332, 0)},
+        {5, new Vector3(397, 92, 0)},
+        {6, new Vector3(397, -166, 0)},
+        {7, new Vector3(397, -406, 0)},
+        {8, new Vector3(803, 332, 0)},
+        {9, new Vector3(803, -176, 0)},
+        {10, new Vector3(803, -406, 0)},
+    };
 
     void Awake()
     {
@@ -79,15 +94,31 @@ public class GameManager : MonoBehaviour
 
             skip.ClickCallback = OnClickSkipEvent;
             
-            listAnswer.Add(skipObj);
+            listAnswer.Add(skip);
+        }
+
+        SetPositionAnswerObjects();
+    }
+
+    private void SetPositionAnswerObjects()
+    {
+        for (int i = 0; i < listAnswer.Count; ++i)
+        {
+            int positionKey = UnityEngine.Random.Range(1, 10);
+
+            if (listAnswer.Exists((k) => k.PositionKey == positionKey))
+                continue;
+            
+            listAnswer[i].SetPosition(positionKey, dicAnswerPossition[positionKey]);
         }
     }
+        
 
     private void OnClickSkipEvent(int result)
     {
         for (int i = 0; i < listAnswer.Count; ++i)
         {
-            Destroy(listAnswer[i]);
+            Destroy(listAnswer[i].gameObject);
         }
         
         listAnswer.Clear();
