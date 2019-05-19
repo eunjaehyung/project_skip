@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     // 現在のステップ.
     private uint _currentStep = 1;
+    // 最大ステップ.
+    private uint _maxStep = UInt32.MaxValue;
 
     // 現在のステップにおける､正解のAnswerId.
     private uint _currentStepAnswerId;
@@ -48,6 +50,18 @@ public class GameManager : MonoBehaviour
     // 各ステップの結果情報のリスト.
     private List<StepResult> _stepResultList = new List<StepResult>();
 
+    public void Awake()
+    {
+        MasterManager.Instance.LoadTableDatas();
+        _currentStep = 1;
+        _maxStep = MasterManager.Instance.GetMaxStepFromQuestionData();
+
+        // TODO: タイムアウト時の終了処理を､後ほど実装する.
+        _timerWidget.SetTime((int)InGameMaxTime, () => Debug.Log("Time Out"));        
+        _timerWidget.StartCountDown();
+        
+        StartStep(_currentStep);
+    }
 
     public void Start()
     {
@@ -59,39 +73,12 @@ public class GameManager : MonoBehaviour
         Debug.Assert(_timerWidget         != null);
     }
 
-    public void Awake()
-    {
-        MasterManager.Instance.LoadTableDatas();
-        
-        // TODO: タイムアウト時の終了処理を､後ほど実装する.
-        _timerWidget.SetTime((int)InGameMaxTime, () => Debug.Log("Time Out"));
-        
-        _timerWidget.StartCountDown();
-        
-        StartStep(_currentStep);
-    }
-
     // 各ステップの開始時処理を行う.
     private void StartStep(uint step)
     {
-        // TODO: 苦しくなってきたので､そろそろ別メソッドに切り出す.
-        if (step == 4)
-        {
-            _timerWidget.StopTime = true;
-            
-            
-            
-            // TODO: この処理は要らないはず.
-            InfoManager.Instance.SetRecord(_stepResultList);
-
-            // キャラのクリア演出.
-            _animCharaController.SetAnimation(CharaAnimName.GameClear);
-
-            // クリアパネルの表示.
-            _gameResultPanel.SetActive(true);
-            _gameResultPanel.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, GameClearPanelAnimName.Start, false);
-            _gameResultPanel.GetComponent<GameResultPanel>().SetTexts(_timerWidget.GetRemainTime(), 0);
-
+        if (step > _maxStep) {
+            // 最大ステップ数を超えたらゲーム終了処理.
+            GameEnd();
             return;
         }
         
@@ -107,7 +94,7 @@ public class GameManager : MonoBehaviour
     // 各ステップにおける､吹き出しオブジェクトの生成を行う.
     private void CreateFukidashiObjects(uint step)
     {
-        List<Dictionary<string, object>> list = MasterManager.Instance.GetCulumnListForCulumnKey("stage", InfoManager.Instance.GameLevel);
+        List<Dictionary<string, object>> list = MasterManager.Instance.GetCulumnListForCulumnKeyFromAnswerData("stage", InfoManager.Instance.GameLevel);
 
         for (int i = 0; i < list.Count; ++i)
         {
@@ -125,6 +112,20 @@ public class GameManager : MonoBehaviour
 
             _fukidashiList.Add(fukidashiObj);
         }
+    }
+
+    // ゲーム終了時処理を行う.
+    private void GameEnd()
+    {
+        _timerWidget.StopTime = true;
+            
+        // キャラのクリア演出.
+        _animCharaController.SetAnimation(CharaAnimName.GameClear);
+
+        // クリアパネルの表示.
+        _gameResultPanel.SetActive(true);
+        _gameResultPanel.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, GameClearPanelAnimName.Start, false);
+        _gameResultPanel.GetComponent<GameResultPanel>().SetTexts(_timerWidget.GetRemainTime(), 0);
     }
 
     // 吹き出しオブジェクトタッチ時処理.

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -65,7 +66,19 @@ public class MasterManager
         return dic[key];
     }
 
-    public List<Dictionary<string, object>> GetCulumnListForCulumnKey(string key, object value)
+    public uint GetMaxStepFromQuestionData()
+    {
+        uint maxStep = 0;
+        for (int i = 0; i < list_table_question.Count; ++i) {
+            uint step =  (uint)(int)list_table_question[i]["step"];
+            // Debug.LogFormat("Step:{0}/{1}", step);
+            maxStep = Math.Max(step, maxStep);
+        }
+        Debug.LogFormat("MaxStep:{0}", maxStep);
+        return maxStep;
+    }
+
+    public List<Dictionary<string, object>> GetCulumnListForCulumnKeyFromAnswerData(string key, object value)
     {
         List<Dictionary<string, object>> resultData = new List<Dictionary<string, object>>();
             
