@@ -122,6 +122,7 @@
      <Compile Include="Assets\Spine Examples\Scripts\SpineboyPole.cs" />
      <Compile Include="Assets\Spine Examples\Scripts\SpineGauge.cs" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Eyes\eyes.atlas.txt" />
+     <None Include="Assets\Resources\Spine\mini\sd_chara_1001.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Gauge\Gauge.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\FootSoldier\FS_White.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Dragon\license.txt" />
@@ -137,13 +138,14 @@
      <None Include="Assets\Spine Examples\Spine Skeletons\Raggedy Spineboy\Raggedy Spineboy.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\whirlyblendmodes\whirlyblendmodes.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Dragon\dragon.atlas.txt" />
+     <None Include="Assets\Resources\Spine\happy\sd_chara_1001.atlas.txt" />
      <None Include="Assets\Resources\Spine\ingame_cutin_01\ingame_cutin_01.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\spineboy-pro\spineboy-pro.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Spineunitygirl\Doi.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Hero\hero-pro.atlas.txt" />
      <None Include="Assets\Resources\Spine\qb_test\qb_test.atlas.txt" />
      <None Include="Assets\Resources\Spine\game_clear\game_clear.atlas.txt" />
-     <None Include="Assets\Resources\Spine\mini\sd_chara_1001.atlas.txt" />
+     <None Include="Assets\Resources\Spine\happy_old\sd_chara_1001.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\FootSoldier\Equipment\Equipment.atlas.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>/Users/hata_toshiki/projects/game_club/skip/project_skip/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
