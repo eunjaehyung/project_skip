@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b194f808b1af6499c93410e504af42, type: 3}
   m_Name: ingame_cutin_01_Atlas
   m_EditorClassIdentifier: 
-  atlasFile: {fileID: 4900000, guid: 19717d5edfd0e44ed989f74546f19e87, type: 3}
+  atlasFile: {fileID: 4900000, guid: ad0951bcaa6e04edfb88731350edada5, type: 3}
   materials:
   - {fileID: 2100000, guid: a50b2cc92d5cd4c0da7ae66c42398994, type: 2}
