@@ -59,9 +59,8 @@ public class GameManager : MonoBehaviour
         _currentStep = 1;
         _maxStep = MasterManager.Instance.GetMaxStepFromQuestionData();
 
-        // TODO: タイムアウト時の終了処理を､後ほど実装する.
-        _timerWidget.SetTime((int)InGameMaxTime, () => Debug.Log("Time Out"));
-        _timerWidget.StartCountDown();
+        _timerWidget.Initialize((int)InGameMaxTime, () => GameEnd() );
+        _timerWidget.Start();
         
         StartStep(_currentStep);
 
@@ -125,7 +124,7 @@ public class GameManager : MonoBehaviour
     // ゲーム終了時処理を行う.
     private void GameEnd()
     {
-        _timerWidget.StopTime = true;
+        //_timerWidget.StopTime = true;
             
         // キャラのクリア演出.
         _animCharaController.SetAnimation(CharaAnimName.GameClear);

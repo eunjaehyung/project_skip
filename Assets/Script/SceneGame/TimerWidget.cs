@@ -5,52 +5,89 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Slider))]
 public class TimerWidget : MonoBehaviour
 {
-    private Slider ProgressTimer;
-    private float maxTime;
-    private float currentTime;
-    private Action TimeOutCallback;
-    public bool StopTime;
-    
-    public void SetTime(int time, Action timeOutCallback)
-    {
-        ProgressTimer = GetComponent<Slider>();
-        
-        maxTime = time;
-        
-        currentTime = time;
-        
-        TimeOutCallback = timeOutCallback;
+    [SerializeField]
+    private Text _remainTimeText = null;
+    private Slider _progressTimer = null;
+
+    private float _maxTime;
+    private float _currentTime;
+    private Action _timeOutCallback;
+    private State _state = State.Stop;
+
+    private enum State {
+        Stop,
+        Start,
+        End,
     }
 
-    public void StartCountDown()
+    public void Initialize(int time, Action timeOutCallback)
     {
-        StopTime = false;
-        
-        StartCoroutine(CorCountDown());
+        _currentTime = time;
+        _maxTime = time;
+
+        _timeOutCallback = timeOutCallback;
+
+        _progressTimer = GetComponent<Slider>();
+        _progressTimer.maxValue = _maxTime;
+
+        Debug.Assert(_remainTimeText != null);
+        _remainTimeText.text = CreateRemainTimeStr(_maxTime);
+    }
+
+    public void Start()
+    {
+        Resume();
+    }
+
+    public void Resume()
+    {
+        if (_state == State.End) { return; }
+        _state = State.Start;
+    }
+
+    public void Stop()
+    {
+        if (_state == State.End) { return; }
+        _state = State.Stop;
+    }
+
+    public bool IsTimeOut()
+    {
+        return _state == State.End;
     }
 
     public float GetRemainTime()
     {
-        return currentTime;
+        return _currentTime;
     }
 
-    IEnumerator CorCountDown()
+    public void FixedUpdate()
     {
-        while (!StopTime)
-        {
-            yield return new WaitForSeconds(0.1f);
+        if (_state == State.Start) {
+            _currentTime -= Time.fixedDeltaTime;
+            _currentTime = Math.Max(_currentTime, 0.0f);
 
-            currentTime -= 0.1f;
+            if (_currentTime <= 0.0f) {
+                _state = State.End;
+            }
 
-            StopTime = currentTime == 0;
+            _remainTimeText.text = CreateRemainTimeStr(_currentTime);
 
-            ProgressTimer.maxValue = maxTime;
-
-            ProgressTimer.value = currentTime;
+            _progressTimer.value = _currentTime;
         }
 
-        TimeOutCallback();
+        if (_state == State.End) {
+            _timeOutCallback();
+            // ※ SliderのValueが0になっても､ゲージがわずかに残り続けてしまうので､非Activeにしている.
+            _progressTimer.gameObject.SetActive(false); 
+        }
+    }
+
+    private string CreateRemainTimeStr(float time)
+    {
+        return time.ToString("00.00").Replace(".", ":");
     }
 }
