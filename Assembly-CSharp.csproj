@@ -60,6 +60,11 @@
      <Compile Include="Assets\Script\General\CSVReader.cs" />
      <Compile Include="Assets\Script\General\InfoManager.cs" />
      <Compile Include="Assets\Script\General\SkeletonAnimationController.cs" />
+     <Compile Include="Assets\Script\NetworkScript\CBattleRoom.cs" />
+     <Compile Include="Assets\Script\NetworkScript\CLogManager.cs" />
+     <Compile Include="Assets\Script\NetworkScript\CNetworkManager.cs" />
+     <Compile Include="Assets\Script\NetworkScript\NetworkTitle.cs" />
+     <Compile Include="Assets\Script\NetworkScript\PRPTOCOL.cs" />
      <Compile Include="Assets\Script\SceneGame\FukidashiController.cs" />
      <Compile Include="Assets\Script\SceneGame\GameManager.cs" />
      <Compile Include="Assets\Script\SceneGame\GameResultPanel.cs" />
