@@ -5,12 +5,14 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Spine;
 using Spine.Unity;
 
 public class GameManager : MonoBehaviour
 {
     // 次のステップ開始までの遅延時間 ※正否アニメーションの尺の違いにより､2パターン用意している.
-    private const float NextStepDelayTimeSuccess = 3.5f;
+    // TODO: アニメーション終了時間をハードコーディングするのではなく､雛形となるSkeletonGraphicから値を動的に取得したい.
+    private const float NextStepDelayTimeSuccess = 2.23f;
     private const float NextStepDelayTimeFail = 1.5f;
 
     // このゲームの最大時間 ※この秒以上経過した場合､ゲーム終了.
@@ -58,10 +60,16 @@ public class GameManager : MonoBehaviour
         _maxStep = MasterManager.Instance.GetMaxStepFromQuestionData();
 
         // TODO: タイムアウト時の終了処理を､後ほど実装する.
-        _timerWidget.SetTime((int)InGameMaxTime, () => Debug.Log("Time Out"));        
+        _timerWidget.SetTime((int)InGameMaxTime, () => Debug.Log("Time Out"));
         _timerWidget.StartCountDown();
         
         StartStep(_currentStep);
+
+        // 以下のコードで､アニメーションの再生時間を取得できる.
+        // var track1 = _fukidashiPrefab.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, "maru", false);
+        // var track2 = _fukidashiPrefab.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, "batu", false);
+        // Debug.LogFormat("maru animation time: {0}", track1.AnimationEnd);
+        // Debug.LogFormat("batu animation time: {0}", track2.AnimationEnd);
     }
 
     public void Start()

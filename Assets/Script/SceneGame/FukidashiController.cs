@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Spine;
 using Spine.Unity;
 
 [RequireComponent(typeof(RectTransform))]
@@ -43,7 +44,9 @@ public class FukidashiController : MonoBehaviour
         
         InitAnimationStateCallbacks();
 
-        skeletonGraphic.AnimationState.SetAnimation(0, AnimNameFukidashi, true);
+        TrackEntry trackEntry = skeletonGraphic.AnimationState.SetAnimation(0, AnimNameFukidashi, true);
+        float randStartTime = UnityEngine.Random.Range(trackEntry.AnimationStart, trackEntry.AnimationEnd);
+        trackEntry.TrackTime = randStartTime;
     }
 
     // このオブジェクトに対する正解時の動作を適用する.
