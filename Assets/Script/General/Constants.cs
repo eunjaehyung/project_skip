@@ -12,8 +12,7 @@ public class CharaAnimName
     // 正解時.
     public static readonly string Success   = "happy";
     // 不正解時.
-    public static readonly string Fail      = "pants";
-    // public static readonly string Fail    = "strip";
+    public static readonly string Fail    = "strip";
     // ゲームクリア時.
     public static readonly string GameClear = "skip";
 }
