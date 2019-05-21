@@ -7,20 +7,20 @@ repeat: none
 images/crecct_maru
   rotate: false
   xy: 2, 2
-  size: 456, 457
-  orig: 456, 457
+  size: 365, 366
+  orig: 365, 366
   offset: 0, 0
   index: -1
 images/incorrect_batu
   rotate: false
-  xy: 460, 5
-  size: 454, 454
-  orig: 454, 454
+  xy: 369, 5
+  size: 363, 363
+  orig: 363, 363
   offset: 0, 0
   index: -1
 images/qs_bubble_bg
   rotate: false
-  xy: 916, 142
+  xy: 734, 51
   size: 407, 317
   orig: 407, 317
   offset: 0, 0
