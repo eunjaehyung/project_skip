@@ -434,6 +434,9 @@
  <Reference Include="UnityEditor.Purchasing">
  <HintPath>/Users/hata_toshiki/projects/game_club/skip/project_skip/Library/PackageCache/com.unity.purchasing@2.0.3/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
+ <Reference Include="FreeNet">
+ <HintPath>/Users/hata_toshiki/projects/game_club/skip/project_skip/Assets/FreeNet/FreeNet.dll</HintPath>
+ </Reference>
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
  </Reference>
