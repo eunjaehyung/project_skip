@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: d94398dfef5b54a4fb219102d4d8a6bd, type: 3}
   materials:
-  - {fileID: 2100000, guid: 4352cad4222494f0b9fe622853614cdc, type: 2}
+  - {fileID: 2100000, guid: 12b87f2c6e65d437e8aad4698e3cbd12, type: 2}
