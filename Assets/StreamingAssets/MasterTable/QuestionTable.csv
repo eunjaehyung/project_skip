@@ -1,4 +1,4 @@
 ﻿id,title,answer_id,stage,step,score
-1,SKIPしろ！,11002,1,1,100
+1,<color="blue">SKIP</color>しろ！,11002,1,1,100
 2,スキップしろ！,12002,1,2,200
-3,"SK<font clor=""#FF0000"">I</font>Pしろ！",13001,1,3,300
+3,SK<color=#0000FF>I</color>Pしろ！,13001,1,3,300
