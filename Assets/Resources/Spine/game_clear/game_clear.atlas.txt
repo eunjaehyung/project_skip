@@ -4,24 +4,73 @@ size: 2048,2048
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-images/game_clear_bg
+images/bg_under
   rotate: false
-  xy: 2, 536
-  size: 960, 960
-  orig: 960, 960
+  xy: 2, 1156
+  size: 1920, 218
+  orig: 1920, 218
+  offset: 0, 0
+  index: -1
+images/bg_uper
+  rotate: false
+  xy: 2, 1376
+  size: 1920, 572
+  orig: 1920, 572
+  offset: 0, 0
+  index: -1
+images/chara
+  rotate: true
+  xy: 871, 76
+  size: 570, 424
+  orig: 570, 424
   offset: 0, 0
   index: -1
 images/game_clear_ef
   rotate: false
-  xy: 2, 182
+  xy: 2, 802
   size: 1475, 352
   orig: 1475, 352
   offset: 0, 0
   index: -1
-images/game_clear_tx
+images/gameclear_tx01
+  rotate: true
+  xy: 1924, 740
+  size: 1208, 122
+  orig: 1208, 122
+  offset: 0, 0
+  index: -1
+images/kimo_01
   rotate: false
+  xy: 1479, 882
+  size: 279, 272
+  orig: 279, 272
+  offset: 0, 0
+  index: -1
+images/oukan
+  rotate: false
+  xy: 1276, 677
+  size: 153, 123
+  orig: 153, 123
+  offset: 0, 0
+  index: -1
+images/sankaku_01
+  rotate: true
+  xy: 2, 325
+  size: 321, 867
+  orig: 321, 867
+  offset: 0, 0
+  index: -1
+images/sankaku_02
+  rotate: true
   xy: 2, 2
-  size: 1161, 178
-  orig: 1161, 178
+  size: 321, 867
+  orig: 321, 867
+  offset: 0, 0
+  index: -1
+images/time_score
+  rotate: false
+  xy: 2, 648
+  size: 1272, 152
+  orig: 1272, 152
   offset: 0, 0
   index: -1

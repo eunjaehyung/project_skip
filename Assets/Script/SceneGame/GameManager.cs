@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
         uint score = SumUpScore();
         _gameResultPanel.SetActive(true);
         _gameResultPanel.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, GameClearPanelAnimName.Start, false);
-        _gameResultPanel.GetComponent<GameResultPanel>().SetTexts(_timerWidget.GetRemainTime(), score);
+        _gameResultPanel.GetComponent<GameClearPanel>().SetTexts(_timerWidget.GetRemainTime(), score);
     }
 
     // 吹き出しオブジェクトタッチ時処理.

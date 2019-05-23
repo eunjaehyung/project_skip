@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameResultPanel : MonoBehaviour
+public class GameClearPanel : MonoBehaviour
 {
     public Text txtTime;
 
@@ -13,7 +13,7 @@ public class GameResultPanel : MonoBehaviour
 
     public void SetTexts(float time, uint score)
     {
-        txtTime.text = Math.Floor(time).ToString() + " sec";
+        txtTime.text = time.ToString("00.00").Replace(".", ":");
         txtScore.text = score.ToString();
     }
 
