@@ -245,7 +245,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c00910a303af841e4a932645b1093e5c, type: 3}
+    m_Font: {fileID: 12800000, guid: f13cb2741e24249a4a352b8416e644c6, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -622,7 +622,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c00910a303af841e4a932645b1093e5c, type: 3}
+    m_Font: {fileID: 12800000, guid: f13cb2741e24249a4a352b8416e644c6, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -804,7 +804,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c00910a303af841e4a932645b1093e5c, type: 3}
+    m_Font: {fileID: 12800000, guid: f13cb2741e24249a4a352b8416e644c6, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -1167,7 +1167,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c00910a303af841e4a932645b1093e5c, type: 3}
+    m_Font: {fileID: 12800000, guid: f13cb2741e24249a4a352b8416e644c6, type: 3}
     m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
@@ -1246,7 +1246,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c00910a303af841e4a932645b1093e5c, type: 3}
+    m_Font: {fileID: 12800000, guid: f13cb2741e24249a4a352b8416e644c6, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
