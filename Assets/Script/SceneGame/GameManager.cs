@@ -124,8 +124,12 @@ public class GameManager : MonoBehaviour
     // ゲーム終了時処理を行う.
     private void GameEnd()
     {
-        //_timerWidget.StopTime = true;
-            
+        // タイマーを止める(タイムアウト処理が発生しないように).
+        _timerWidget.Stop();
+
+        // 残っている吹き出しを削除.
+        ClearFukidashiList();
+
         // キャラのクリア演出.
         _animCharaController.SetAnimation(CharaAnimName.GameClear);
 
@@ -154,14 +158,15 @@ public class GameManager : MonoBehaviour
         }
 
         // 現在のステップの吹き出しは削除.
-        foreach (FukidashiController fukidashi in _fukidashiList) {
-            if (fukidashi.AnswerId == fukidashiObj.AnswerId) {
-                // ※タッチした吹き出しは削除しない(各種アニメーションなどさせるため).
-                continue;
-            }
-            Destroy(fukidashi.gameObject);
-        }
-        _fukidashiList.Clear();
+        ClearFukidashiList(fukidashiObj);
+        // foreach (FukidashiController fukidashi in _fukidashiList) {
+        //     if (fukidashi.AnswerId == fukidashiObj.AnswerId) {
+        //         // ※タッチした吹き出しは削除しない(各種アニメーションなどさせるため).
+        //         continue;
+        //     }
+        //     Destroy(fukidashi.gameObject);
+        // }
+        // _fukidashiList.Clear();
 
         // 背景キャラに指定のアニメーションをさせる.
         string animationName = (isSuccess) ? CharaAnimName.Success : CharaAnimName.Fail;
@@ -186,6 +191,19 @@ public class GameManager : MonoBehaviour
             (isSuccess) ? NextStepDelayTimeSuccess : NextStepDelayTimeFail,
             () => StartStep(_currentStep)
         ));
+    }
+
+    private void ClearFukidashiList(FukidashiController touchedOne = null)
+    {
+        // 現在のステップの吹き出しは削除.
+        foreach (FukidashiController fukidashi in _fukidashiList) {
+            if (touchedOne && touchedOne.AnswerId == fukidashi.AnswerId) {
+                // ※タッチした吹き出しは削除しない(各種アニメーションなどさせるため).
+                continue;
+            }
+            Destroy(fukidashi.gameObject);
+        }
+        _fukidashiList.Clear();
     }
 
     private uint SumUpScore()
