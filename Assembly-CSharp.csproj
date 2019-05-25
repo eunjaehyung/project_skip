@@ -57,6 +57,7 @@
      <Compile Include="Assets\FreeNet\CFreeNetUnityService.cs" />
      <Compile Include="Assets\FreeNet\CRemoteServerPeer.cs" />
      <Compile Include="Assets\Script\General\ActorScript.cs" />
+     <Compile Include="Assets\Script\General\BgmPlayer.cs" />
      <Compile Include="Assets\Script\General\CameraManScript.cs" />
      <Compile Include="Assets\Script\General\Constants.cs" />
      <Compile Include="Assets\Script\General\CSVReader.cs" />
