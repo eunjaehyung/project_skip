@@ -74,6 +74,9 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
+        // TODO: 仮コードです.
+        // var _masterFukidashHolder = MasterFukidashiHolder.Instance();
+        // var _masterStepHolder     = MasterStepHolder.Instance();
         Debug.Assert(_animCharaController != null);
         Debug.Assert(_gameResultPanel          != null);
         Debug.Assert(_fukidashiPrefab     != null);
