@@ -31,6 +31,7 @@ public class GameSceneController : MonoBehaviour
     [SerializeField]
     private GameObject _fukidashiPrefab = null;
 
+    // TODO: 管理するUIが多くなり過ぎているので､別のクラスに切り出すこと.
     // 各種UIオブジェクト.
     [SerializeField]
     private Canvas _canvas = null;
@@ -38,6 +39,10 @@ public class GameSceneController : MonoBehaviour
     private TextMeshProUGUI _textStepTitle = null;
     [SerializeField]
     private TimerWidget _timerWidget = null;
+    [SerializeField]
+    private Text _currentStepText = null;
+    [SerializeField]
+    private List<Image> _stageImageList = new List<Image>();
 
 
     // 今回のゲームのレベル(難易度).
@@ -68,6 +73,8 @@ public class GameSceneController : MonoBehaviour
         Debug.Assert(_canvas              != null);
         Debug.Assert(_textStepTitle       != null);
         Debug.Assert(_timerWidget         != null);
+        Debug.Assert(_currentStepText     != null);
+        Debug.Assert(_stageImageList.Count == LevelManager.Instance.MaxLevel);
 
         _masterFukidashHolder = MasterFukidashiHolder.Instance();
         _masterStepHolder     = MasterStepHolder.Instance();
@@ -78,6 +85,8 @@ public class GameSceneController : MonoBehaviour
 
         _timerWidget.Initialize((int)InGameMaxTime, () => GameEnd() );
         _timerWidget.Start();
+        UpdateCurrentStepText(_currentStep);
+        ToggleStageLabelImage(_stageLevel);
 
         StartStep(_currentStep);
 
@@ -100,6 +109,7 @@ public class GameSceneController : MonoBehaviour
         MasterItemStep stepMaster = _masterStepHolder.GetOneOrFail(_stageLevel, _currentStep);
         _currentStepAnswerId = stepMaster.AnswerId;
         _textStepTitle.text  = stepMaster.Title;
+        UpdateCurrentStepText(_currentStep);
         
         CreateFukidashiObjects(step);
     }
@@ -216,5 +226,16 @@ public class GameSceneController : MonoBehaviour
     {
         yield return new WaitForSeconds(delaySec);
         callback();
+    }
+
+    private void UpdateCurrentStepText(int step)
+    {
+        _currentStepText.text = step.ToString("000");
+    }
+
+    private void ToggleStageLabelImage(int stage)
+    {
+        _stageImageList.Select( (image)  => { image.gameObject.SetActive(false); return image; } );
+        _stageImageList[stage - 1].gameObject.SetActive(true);
     }
 }
