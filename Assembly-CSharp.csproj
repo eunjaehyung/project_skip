@@ -74,6 +74,7 @@
      <Compile Include="Assets\Script\SceneGame\MasterManager.cs" />
      <Compile Include="Assets\Script\SceneGame\StepResult.cs" />
      <Compile Include="Assets\Script\SceneGame\TimerWidget.cs" />
+     <Compile Include="Assets\Script\SceneTitle\LevelButton.cs" />
      <Compile Include="Assets\Script\SceneTitle\TitlePanel.cs" />
      <Compile Include="Assets\Script\Test\FukidashiSpawner.cs" />
      <Compile Include="Assets\Script\Test\SpineSample.cs" />
