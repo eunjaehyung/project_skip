@@ -8,15 +8,25 @@ using Spine.Unity;
 
 [RequireComponent(typeof(RectTransform))]
 [RequireComponent(typeof(SkeletonGraphic))]
+[RequireComponent(typeof(AudioSource))]
 public class FukidashiController : MonoBehaviour
 {
     // Spineアニメーション名に関する定数.
+    [SerializeField]
     private const string AnimNameFukidashi = "fukidashi";
+    [SerializeField]
     private const string AnimNameMaru = "maru";
+    [SerializeField]
     private const string AnimNameBatu = "batu";
 
+    [SerializeField]
     private const int FontSize = 60;
 
+    // 正解・不正解時SE
+    [SerializeField]
+    private AudioClip _seSuccess = null;
+    [SerializeField]
+    private AudioClip _seFail = null;
 
     private uint _answerId = Int32.MaxValue;
     public uint AnswerId
@@ -40,6 +50,9 @@ public class FukidashiController : MonoBehaviour
 
     public void Start()
     {
+        Debug.Assert(_seSuccess != null);
+        Debug.Assert(_seFail != null);
+
         SkeletonGraphic skeletonGraphic = GetComponent<SkeletonGraphic>();
         
         InitAnimationStateCallbacks();
@@ -54,6 +67,7 @@ public class FukidashiController : MonoBehaviour
     {
         _hasTouched = true;
         GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, AnimNameMaru, false);
+        GetComponent<AudioSource>().PlayOneShot(_seSuccess);
     }
 
     // このオブジェクトに対する不正解時の動作を適用する.
@@ -61,6 +75,7 @@ public class FukidashiController : MonoBehaviour
     {
         _hasTouched = true;
         GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, AnimNameBatu, false);
+        GetComponent<AudioSource>().PlayOneShot(_seFail);
     }
 
     public void SetMasterData(Dictionary<string, object> dict)
