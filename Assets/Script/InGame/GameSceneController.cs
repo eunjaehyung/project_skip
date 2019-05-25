@@ -9,7 +9,7 @@ using TMPro;
 using Spine;
 using Spine.Unity;
 
-public class GameManager : MonoBehaviour
+public class GameSceneController : MonoBehaviour
 {
     // 次のステップ開始までの遅延時間 ※正否アニメーションの尺の違いにより､2パターン用意している.
     // TODO: アニメーション終了時間をハードコーディングするのではなく､雛形となるSkeletonGraphicから値を動的に取得したい.

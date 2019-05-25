@@ -18,7 +18,7 @@ public class LevelButton : MonoBehaviour
     private Color _colorOn;
     private Color _colorOff;
 
-    void Start()
+    void Awake()
     {
         Debug.Assert(_buttonLabel != null);
 
@@ -26,14 +26,17 @@ public class LevelButton : MonoBehaviour
         parseResult = ColorUtility.TryParseHtmlString(_htmlColorOn,  out _colorOn)  && parseResult;
         parseResult = ColorUtility.TryParseHtmlString(_htmlColorOff, out _colorOff) && parseResult;
         Debug.Assert(parseResult);
+    }
 
+    void Start()
+    {
         var toggle = GetComponent<Toggle>();
-        toggle.onValueChanged.AddListener((bool isOn) => {
-            if (isOn) {
-                _buttonLabel.color = _colorOn;
-            } else {
-                _buttonLabel.color = _colorOff;
-            }
-        });
+        toggle.onValueChanged.AddListener(Toggle);
+    }
+
+    public void Toggle(bool isOn)
+    {
+        GetComponent<Toggle>().isOn = isOn;
+        _buttonLabel.color = (isOn) ? _colorOn : _colorOff;
     }
 }

@@ -60,9 +60,10 @@
      <Compile Include="Assets\Script\Common\Constants.cs" />
      <Compile Include="Assets\Script\Common\GameUtils.cs" />
      <Compile Include="Assets\Script\InGame\FukidashiController.cs" />
-     <Compile Include="Assets\Script\InGame\GameManager.cs" />
+     <Compile Include="Assets\Script\InGame\GameSceneController.cs" />
      <Compile Include="Assets\Script\InGame\LevelManager.cs" />
      <Compile Include="Assets\Script\InGame\StepResult.cs" />
+     <Compile Include="Assets\Script\InGame\TitleSceneController.cs" />
      <Compile Include="Assets\Script\MasterData\CsvParser.cs" />
      <Compile Include="Assets\Script\MasterData\MasterFukidashiHolder.cs" />
      <Compile Include="Assets\Script\MasterData\MasterItemFukidashi.cs" />

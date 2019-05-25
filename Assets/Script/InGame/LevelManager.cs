@@ -24,6 +24,21 @@ public class LevelManager : MonoBehaviour
     public int Level
     {
         get { return _gameLevel; }
-        set { _gameLevel = value; }
+        set {
+            Debug.Assert(_minLevel <= _gameLevel && _gameLevel >= _maxLevel);
+            _gameLevel = value;
+        }
+    }
+
+    private const int _minLevel = 1;
+    public int MinLevel
+    {
+        get { return _minLevel; }
+    }
+
+    private const int _maxLevel = 1;
+    public int MaxLevel
+    {
+        get { return _maxLevel; }
     }
 }
