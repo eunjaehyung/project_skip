@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 using Spine;
 using Spine.Unity;
 
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
     private const float NextStepDelayTimeFail = 1.5f;
 
     // このゲームの最大時間 ※この秒以上経過した場合､ゲーム終了.
-    private const float InGameMaxTime = 20.0f;
+    private const float InGameMaxTime = 99.0f;
 
     // 背景キャラ.
     [SerializeField]
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Canvas _canvas = null;
     [SerializeField]
-    private Text _textStepTitle = null;
+    private TextMeshProUGUI _textStepTitle = null;
     [SerializeField]
     private TimerWidget _timerWidget = null;
 
