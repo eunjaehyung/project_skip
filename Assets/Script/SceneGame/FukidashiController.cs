@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Spine;
 using Spine.Unity;
 
@@ -82,7 +83,7 @@ public class FukidashiController : MonoBehaviour
     {
         GetComponent<RectTransform>().anchoredPosition = new Vector3((int)dict["x"], (int)dict["y"], 0);
 
-        Text[] texts = this.GetComponentsInChildren<Text>();
+        TextMeshProUGUI[] texts = this.GetComponentsInChildren<TextMeshProUGUI>();
         if (texts.Length >= 1) {
             texts[0].text = dict["title"].ToString();
             texts[0].fontSize = FontSize;
