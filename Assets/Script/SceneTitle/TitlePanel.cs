@@ -11,7 +11,7 @@ public class TitlePanel : MonoBehaviour
 
     public void SetLevel(int level)
     {
-        InfoManager.Instance.GameLevel = level;
+        LevelManager.Instance.Level = level;
         
         _level = (LEVEL) level;
     }

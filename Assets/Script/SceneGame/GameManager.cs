@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         _masterFukidashHolder = MasterFukidashiHolder.Instance();
         _masterStepHolder     = MasterStepHolder.Instance();
 
-        _stageLevel = InfoManager.Instance.GameLevel;
+        _stageLevel = LevelManager.Instance.Level;
         _currentStep = 1;
         _maxStep = _masterStepHolder.GetMaxStep(_stageLevel);
 

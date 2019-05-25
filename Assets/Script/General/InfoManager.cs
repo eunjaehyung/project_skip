@@ -2,34 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfoManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
-    private static InfoManager instance;
-    public static InfoManager Instance
+    private static LevelManager _instance;
+    public static LevelManager Instance
     {
         get
         {
-            if (instance == null)
+            if (_instance == null)
             {
                 GameObject ins = new GameObject();
-                instance = ins.AddComponent<InfoManager>();
+                _instance = ins.AddComponent<LevelManager>();
                 DontDestroyOnLoad(ins);
             }
 
-            return instance;
+            return _instance;
         }
     }
 
-    public int GameLevel = 1;
-    public GameRecord GameRecord = new GameRecord();
-
-    public void SetRecord(List<StepResult> data)
+    private int _gameLevel = 1;
+    public int Level
     {
-        GameRecord.listRecord.AddRange(data);
+        get { return _gameLevel; }
+        set { _gameLevel = value; }
     }
-}
-
-public class GameRecord
-{
-    public List<StepResult> listRecord = new List<StepResult>();
 }
