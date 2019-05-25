@@ -40,12 +40,12 @@ public class GameManager : MonoBehaviour
 
 
     // 現在のステップ.
-    private uint _currentStep = 1;
+    private int _currentStep = 1;
     // 最大ステップ.
-    private uint _maxStep = UInt32.MaxValue;
+    private int _maxStep = Int32.MaxValue;
 
     // 現在のステップにおける､正解のAnswerId.
-    private uint _currentStepAnswerId;
+    private int _currentStepAnswerId;
 
     // 現在のステップにおける､吹き出しオブジェクトのリスト.
     private List<FukidashiController> _fukidashiList = new List<FukidashiController>(){};
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 各ステップの開始時処理を行う.
-    private void StartStep(uint step)
+    private void StartStep(int step)
     {
         if (step > _maxStep) {
             // 最大ステップ数を超えたらゲーム終了処理.
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         
         object title = MasterManager.Instance.GetQuestionData((int)step, "title");
         
-        _currentStepAnswerId = (uint)(int)(MasterManager.Instance.GetQuestionData((int)step, "answer_id"));
+        _currentStepAnswerId = (int)(MasterManager.Instance.GetQuestionData((int)step, "answer_id"));
 
         _textStepTitle.text = title.ToString();
         
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
     }
 
     // 各ステップにおける､吹き出しオブジェクトの生成を行う.
-    private void CreateFukidashiObjects(uint step)
+    private void CreateFukidashiObjects(int step)
     {
         List<Dictionary<string, object>> list = MasterManager.Instance.GetCulumnListForCulumnKeyFromAnswerData("stage", InfoManager.Instance.GameLevel);
 
@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour
         _animCharaController.SetAnimation(CharaAnimName.GameClear);
 
         // クリアパネルの表示.
-        uint score = SumUpScore();
+        int score = SumUpScore();
         _gameResultPanel.SetActive(true);
         _gameResultPanel.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, GameClearPanelAnimName.Start, false);
         _gameResultPanel.GetComponent<GameClearPanel>().SetTexts(_timerWidget.GetRemainTime(), score);
@@ -173,8 +173,8 @@ public class GameManager : MonoBehaviour
         _animCharaController.SetAnimation(animationName);
 
         // 現在のステップの結果を保存しておく.
-        uint stage = (uint)(int)InfoManager.Instance.GameLevel;
-        uint score = (isSuccess) ? MasterManager.Instance.GetScoreFromQuestionData(stage, _currentStep) : 0;
+        int stage = (int)InfoManager.Instance.GameLevel;
+        int score = (isSuccess) ? MasterManager.Instance.GetScoreFromQuestionData(stage, _currentStep) : 0;
         StepResult packege = new StepResult()
         {
             Step       = _currentStep,
@@ -206,10 +206,10 @@ public class GameManager : MonoBehaviour
         _fukidashiList.Clear();
     }
 
-    private uint SumUpScore()
+    private int SumUpScore()
     {
         // ※ 失敗の場合はスコア0なので､実はWhereは不要.
-        uint score = (uint)_stepResultList
+        int score = _stepResultList
                         .Where( result => result.IsSuccess )
                         .Select( result => (int)result.Score )
                         .Sum();

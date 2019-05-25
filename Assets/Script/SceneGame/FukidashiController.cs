@@ -28,8 +28,8 @@ public class FukidashiController : MonoBehaviour
     [SerializeField]
     private AudioClip _seFail = null;
 
-    private uint _answerId = Int32.MaxValue;
-    public uint AnswerId
+    private int _answerId = Int32.MaxValue;
+    public int AnswerId
     {
         get { return _answerId; }
     }
@@ -88,7 +88,7 @@ public class FukidashiController : MonoBehaviour
             texts[0].fontSize = FontSize;
         }
 
-        _answerId = (uint)(int)dict["answer_id"];
+        _answerId = (int)dict["answer_id"];
     }
 
     public void OnClick()

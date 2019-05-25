@@ -5,9 +5,9 @@ using UnityEngine;
 // 各ステップの結果情報.
 public class StepResult
 {
-    public uint Step;
+    public int Step;
     public bool IsSuccess;
-    public uint AnswerId;
+    public int AnswerId;
     public float RemainTime;
-    public uint Score;
+    public int Score;
 }

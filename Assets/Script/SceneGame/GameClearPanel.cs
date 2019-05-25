@@ -11,7 +11,7 @@ public class GameClearPanel : MonoBehaviour
 
     public Text txtScore;
 
-    public void SetTexts(float time, uint score)
+    public void SetTexts(float time, int score)
     {
         txtTime.text = time.ToString("00.00").Replace(".", ":");
         txtScore.text = score.ToString();
