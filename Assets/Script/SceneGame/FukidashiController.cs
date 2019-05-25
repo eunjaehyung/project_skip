@@ -79,17 +79,19 @@ public class FukidashiController : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(_seFail);
     }
 
-    public void SetMasterData(Dictionary<string, object> dict)
+    public void SetMasterData(MasterItemFukidashi master)
     {
-        GetComponent<RectTransform>().anchoredPosition = new Vector3((int)dict["x"], (int)dict["y"], 0);
+        GetComponent<RectTransform>().anchoredPosition = new Vector3((float)master.X, (float)master.Y, 0.0f);
 
         TextMeshProUGUI[] texts = this.GetComponentsInChildren<TextMeshProUGUI>();
         if (texts.Length >= 1) {
-            texts[0].text = dict["title"].ToString();
+            texts[0].text = master.Title;
             texts[0].fontSize = FontSize;
+        } else {
+            Debug.AssertFormat(false, "Text Object was not set.");
         }
 
-        _answerId = (int)dict["answer_id"];
+        _answerId = master.AnswerId;
     }
 
     public void OnClick()

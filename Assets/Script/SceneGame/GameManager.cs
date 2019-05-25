@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     private TimerWidget _timerWidget = null;
 
 
+    // 今回のゲームのレベル(難易度).
+    private int _stageLevel = 1;
     // 現在のステップ.
     private int _currentStep = 1;
     // 最大ステップ.
@@ -54,15 +56,29 @@ public class GameManager : MonoBehaviour
     // 各ステップの結果情報のリスト.
     private List<StepResult> _stepResultList = new List<StepResult>();
 
+    // 各種マスタ保持クラス,
+    MasterFukidashiHolder _masterFukidashHolder = null;
+    MasterStepHolder _masterStepHolder = null;
+
     public void Awake()
     {
-        MasterManager.Instance.LoadTableDatas();
+        Debug.Assert(_animCharaController != null);
+        Debug.Assert(_gameResultPanel     != null);
+        Debug.Assert(_fukidashiPrefab     != null);
+        Debug.Assert(_canvas              != null);
+        Debug.Assert(_textStepTitle       != null);
+        Debug.Assert(_timerWidget         != null);
+
+        _masterFukidashHolder = MasterFukidashiHolder.Instance();
+        _masterStepHolder     = MasterStepHolder.Instance();
+
+        _stageLevel = InfoManager.Instance.GameLevel;
         _currentStep = 1;
-        _maxStep = MasterManager.Instance.GetMaxStepFromQuestionData();
+        _maxStep = _masterStepHolder.GetMaxStep(_stageLevel);
 
         _timerWidget.Initialize((int)InGameMaxTime, () => GameEnd() );
         _timerWidget.Start();
-        
+
         StartStep(_currentStep);
 
         // 以下のコードで､アニメーションの再生時間を取得できる.
@@ -70,19 +86,6 @@ public class GameManager : MonoBehaviour
         // var track2 = _fukidashiPrefab.GetComponent<SkeletonGraphic>().AnimationState.SetAnimation(0, "batu", false);
         // Debug.LogFormat("maru animation time: {0}", track1.AnimationEnd);
         // Debug.LogFormat("batu animation time: {0}", track2.AnimationEnd);
-    }
-
-    public void Start()
-    {
-        // TODO: 仮コードです.
-        // var _masterFukidashHolder = MasterFukidashiHolder.Instance();
-        // var _masterStepHolder     = MasterStepHolder.Instance();
-        Debug.Assert(_animCharaController != null);
-        Debug.Assert(_gameResultPanel          != null);
-        Debug.Assert(_fukidashiPrefab     != null);
-        Debug.Assert(_canvas              != null);
-        Debug.Assert(_textStepTitle       != null);
-        Debug.Assert(_timerWidget         != null);
     }
 
     // 各ステップの開始時処理を行う.
@@ -93,32 +96,28 @@ public class GameManager : MonoBehaviour
             GameEnd();
             return;
         }
-        
-        object title = MasterManager.Instance.GetQuestionData((int)step, "title");
-        
-        _currentStepAnswerId = (int)(MasterManager.Instance.GetQuestionData((int)step, "answer_id"));
 
-        _textStepTitle.text = title.ToString();
+        MasterItemStep stepMaster = _masterStepHolder.GetOneOrFail(_stageLevel, _currentStep);
+        _currentStepAnswerId = stepMaster.AnswerId;
+        _textStepTitle.text  = stepMaster.Title;
         
         CreateFukidashiObjects(step);
     }
 
+    // TODO: このメソッドは､吹き出し管理クラスを作って､そちらに処理を委譲するべきです.
     // 各ステップにおける､吹き出しオブジェクトの生成を行う.
     private void CreateFukidashiObjects(int step)
     {
-        List<Dictionary<string, object>> list = MasterManager.Instance.GetCulumnListForCulumnKeyFromAnswerData("stage", InfoManager.Instance.GameLevel);
+        List<MasterItemFukidashi> masterList = _masterFukidashHolder.GetList(
+            (item) => { return item.Stage == _stageLevel && item.Step == _currentStep; }
+        );
 
-        for (int i = 0; i < list.Count; ++i)
-        {
-            if (list[i]["step"].ToString() != step.ToString()) {
-                continue;
-            }
-
+        foreach (var master in masterList) {
             GameObject fukidashiGameObj = Instantiate(_fukidashiPrefab, _canvas.transform);
             FukidashiController fukidashiObj = fukidashiGameObj.GetComponent<FukidashiController>();
             Debug.Assert(fukidashiObj != null);
 
-            fukidashiObj.SetMasterData(list[i]);
+            fukidashiObj.SetMasterData(master);
             fukidashiObj.TouchCallback = OnTouchFukidashiObject;
 
             _fukidashiList.Add(fukidashiObj);
@@ -163,22 +162,15 @@ public class GameManager : MonoBehaviour
 
         // 現在のステップの吹き出しは削除.
         ClearFukidashiList(fukidashiObj);
-        // foreach (FukidashiController fukidashi in _fukidashiList) {
-        //     if (fukidashi.AnswerId == fukidashiObj.AnswerId) {
-        //         // ※タッチした吹き出しは削除しない(各種アニメーションなどさせるため).
-        //         continue;
-        //     }
-        //     Destroy(fukidashi.gameObject);
-        // }
-        // _fukidashiList.Clear();
 
         // 背景キャラに指定のアニメーションをさせる.
         string animationName = (isSuccess) ? CharaAnimName.Success : CharaAnimName.Fail;
         _animCharaController.SetAnimation(animationName);
 
         // 現在のステップの結果を保存しておく.
-        int stage = (int)InfoManager.Instance.GameLevel;
-        int score = (isSuccess) ? MasterManager.Instance.GetScoreFromQuestionData(stage, _currentStep) : 0;
+        int score = (isSuccess)
+            ? _masterStepHolder.GetOneOrFail(_stageLevel, _currentStep).Score
+            : 0;
         StepResult packege = new StepResult()
         {
             Step       = _currentStep,

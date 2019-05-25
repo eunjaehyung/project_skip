@@ -57,6 +57,12 @@ public class MasterFukidashiHolder : MonoBehaviour
         return null;
     }
 
+    // TODO: 抽象クラスにまとめるために､この箇所はジェネリックな型を返すようにする.
+    public List<MasterItemFukidashi> GetList(Func<MasterItemFukidashi, bool> predicate)
+    {
+        return _items.Where(predicate).ToList();
+    }
+
     private void ReadMasterDataFromFile()
     {
         // TODO: 抽象クラスにまとめるために､マスタファイルパス取得処理を､抽象メソッド化する.

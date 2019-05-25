@@ -45,6 +45,11 @@ public class MasterStepHolder : MonoBehaviour
         return null;
     }
 
+    public List<MasterItemStep> GetList(Func<MasterItemStep, bool> predicate)
+    {
+        return _items.Where(predicate).ToList();
+    }
+
     private void ReadMasterDataFromFile()
     {
         List<Dictionary<string, object>> rawDataList = CsvParser.ReadAndParse(MasterFilePath.Step);
@@ -64,5 +69,19 @@ public class MasterStepHolder : MonoBehaviour
                 key
             );
         }
+    }
+
+    public MasterItemStep GetOneOrFail(int stage, int step)
+    {
+        return GetOneOrFail( (item) => { return item.Stage == stage && item.Step == step; } );
+    }
+
+    public int GetMaxStep(int stage)
+    {
+        int step = 0;
+        step = _items
+            .Where( (item) => { return item.Stage == stage; } )
+            .Max( (item) => { return item.Step; });
+        return step;
     }
 }

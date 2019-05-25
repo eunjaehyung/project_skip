@@ -60,14 +60,13 @@
      <Compile Include="Assets\Script\General\BgmPlayer.cs" />
      <Compile Include="Assets\Script\General\CameraManScript.cs" />
      <Compile Include="Assets\Script\General\Constants.cs" />
-     <Compile Include="Assets\Script\General\CsvParser.cs" />
-     <Compile Include="Assets\Script\General\CSVReader.cs" />
      <Compile Include="Assets\Script\General\GameUtils.cs" />
      <Compile Include="Assets\Script\General\InfoManager.cs" />
-     <Compile Include="Assets\Script\General\MasterFukidashiHolder.cs" />
-     <Compile Include="Assets\Script\General\MasterItemFukidashi.cs" />
-     <Compile Include="Assets\Script\General\MasterItemStep.cs" />
-     <Compile Include="Assets\Script\General\MasterStepHolder.cs" />
+     <Compile Include="Assets\Script\General\MasterData\CsvParser.cs" />
+     <Compile Include="Assets\Script\General\MasterData\MasterFukidashiHolder.cs" />
+     <Compile Include="Assets\Script\General\MasterData\MasterItemFukidashi.cs" />
+     <Compile Include="Assets\Script\General\MasterData\MasterItemStep.cs" />
+     <Compile Include="Assets\Script\General\MasterData\MasterStepHolder.cs" />
      <Compile Include="Assets\Script\General\SkeletonAnimationController.cs" />
      <Compile Include="Assets\Script\NetworkScript\CBattleRoom.cs" />
      <Compile Include="Assets\Script\NetworkScript\CLogManager.cs" />
@@ -77,7 +76,6 @@
      <Compile Include="Assets\Script\SceneGame\FukidashiController.cs" />
      <Compile Include="Assets\Script\SceneGame\GameClearPanel.cs" />
      <Compile Include="Assets\Script\SceneGame\GameManager.cs" />
-     <Compile Include="Assets\Script\SceneGame\MasterManager.cs" />
      <Compile Include="Assets\Script\SceneGame\StepResult.cs" />
      <Compile Include="Assets\Script\SceneGame\TimerWidget.cs" />
      <Compile Include="Assets\Script\SceneTitle\LevelButton.cs" />
