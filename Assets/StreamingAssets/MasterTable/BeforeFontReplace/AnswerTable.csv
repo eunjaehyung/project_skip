@@ -1,11 +1,11 @@
 id,title,answer_id,stage,step,x,y,se,anim_id
 1,SKIP,10001,1,1,750,881,correct_answer,1
-2,<font="FOT-RodinMariaPro-EB SDF">スキップ</font>,10002,1,1,490,-245,incorrect_answer,1
-3,<font="FOT-RodinMariaPro-EB SDF">すきっぷ</font>,10003,1,1,48,888,incorrect_answer,1
-4,<font="FOT-RodinMariaPro-EB SDF">スキップ</font>,10004,1,2,263,-794,correct_answer,1
-5,<font="FOT-RodinMariaPro-EB SDF">ストップ</font>,10005,1,2,-348,67,incorrect_answer,1
-6,<font="FOT-RodinMariaPro-EB SDF">ストリップ</font>,10006,1,2,-33,83,incorrect_answer,1
-7,<font="FOT-RodinMariaPro-EB SDF">スキツプ</font>,10007,1,2,165,145,incorrect_answer,1
+2,スキップ,10002,1,1,490,-245,incorrect_answer,1
+3,すきっぷ,10003,1,1,48,888,incorrect_answer,1
+4,スキップ,10004,1,2,263,-794,correct_answer,1
+5,ストップ,10005,1,2,-348,67,incorrect_answer,1
+6,ストリップ,10006,1,2,-33,83,incorrect_answer,1
+7,スキツプ,10007,1,2,165,145,incorrect_answer,1
 8,SK<color=#FE5780>I</color>P,10008,1,3,596,296,correct_answer,1
 9,SKIP,10009,1,3,125,134,incorrect_answer,1
 10,SK<color=#FF8E63>I</color>P,10010,1,3,726,665,incorrect_answer,1
@@ -16,11 +16,11 @@ id,title,answer_id,stage,step,x,y,se,anim_id
 15,SkIp,20003,2,1,101,-664,incorrect_answer,1
 16,SliP,20004,2,1,-381,859,incorrect_answer,1
 17,SKIP,20001,2,1,748,480,incorrect_answer,1
-18,<font="FOT-RodinMariaPro-EB SDF">ス<color=#FE5780>キ</color>ップ</font>,20006,2,2,77,-208,correct_answer,1
-19,<font="FOT-RodinMariaPro-EB SDF">スキップ</font>,20007,2,2,260,-854,incorrect_answer,1
-20,<font="FOT-RodinMariaPro-EB SDF">スリップ</font>,20008,2,2,-373,488,incorrect_answer,1
-21,<font="FOT-RodinMariaPro-EB SDF">青春１８キップ</font>,20009,2,2,-53,196,incorrect_answer,1
-22,<font="FOT-RodinMariaPro-EB SDF">スキ<color=#FE5780>ッ</color>プ</font>,20010,2,2,493,616,incorrect_answer,1
+18,ス<color=#FE5780>キ</color>ップ,20006,2,2,77,-208,correct_answer,1
+19,スキップ,20007,2,2,260,-854,incorrect_answer,1
+20,スリップ,20008,2,2,-373,488,incorrect_answer,1
+21,青春１８キップ,20009,2,2,-53,196,incorrect_answer,1
+22,スキ<color=#FE5780>ッ</color>プ,20010,2,2,493,616,incorrect_answer,1
 23,SK<color=#FE5780>I</color><color=#00E4CA>P</color>,20011,2,3,485,613,correct_answer,1
 24,SK<color=#00E4CA>I</color><color=#FE5780>P</color>,20012,2,3,-374,409,incorrect_answer,1
 25,SK<color=#FE5780>I</color><color=#FF8E63>P</color>,20013,2,3,-361,491,incorrect_answer,1
@@ -33,12 +33,12 @@ id,title,answer_id,stage,step,x,y,se,anim_id
 32,sKIP,30003,3,1,414,870,incorrect_answer,1
 33,SKIp,30004,3,1,766,-548,incorrect_answer,1
 34,skip,30005,3,1,-222,881,incorrect_answer,1
-35,<font="FOT-RodinMariaPro-EB SDF">ス<color=#FE5780>キ</color>ッ<color=#00E4CA>プ</color></font>,30006,3,2,804,112,correct_answer,1
-36,<font="FOT-RodinMariaPro-EB SDF">ス<color=#00E4CA>キ</color>ッ<color=#FE5780>プ</color></font>,30007,3,2,783,599,incorrect_answer,1
-37,<font="FOT-RodinMariaPro-EB SDF">ス<color=#FE5780>ト</color>ッ<color=#00E4CA>プ</color></font>,30008,3,2,-289,-865,incorrect_answer,1
-38,<font="FOT-RodinMariaPro-EB SDF">ス<color=#FE5780>キ</color>ッ<color=#FF8E63>プ</color></font>,30009,3,2,322,-349,incorrect_answer,1
-39,<font="FOT-RodinMariaPro-EB SDF">ス<color=#FE5780>キ</color><color=#00E4CA>ッ</color>プ</font>,30010,3,2,681,32,incorrect_answer,1
-40,<font="FOT-RodinMariaPro-EB SDF"><color=#FE5780>ス</color>キッ<color=#00E4CA>プ</color></font>,30011,3,2,38,-309,incorrect_answer,1
+35,ス<color=#FE5780>キ</color>ッ<color=#00E4CA>プ</color>,30006,3,2,804,112,correct_answer,1
+36,ス<color=#00E4CA>キ</color>ッ<color=#FE5780>プ</color>,30007,3,2,783,599,incorrect_answer,1
+37,ス<color=#FE5780>ト</color>ッ<color=#00E4CA>プ</color>,30008,3,2,-289,-865,incorrect_answer,1
+38,ス<color=#FE5780>キ</color>ッ<color=#FF8E63>プ</color>,30009,3,2,322,-349,incorrect_answer,1
+39,ス<color=#FE5780>キ</color><color=#00E4CA>ッ</color>プ,30010,3,2,681,32,incorrect_answer,1
+40,<color=#FE5780>ス</color>キッ<color=#00E4CA>プ</color>,30011,3,2,38,-309,incorrect_answer,1
 41,<color=#FF8E63>S</color>K<color=#00E4CA>I</color><color=#FE5780>P</color>,30012,3,3,-175,134,correct_answer,1
 42,<color=#FF8E63>S</color>K<color=#FE5780>I</color><color=#00E4CA>P</color>,30013,3,3,-194,-489,incorrect_answer,1
 43,<color=#FF8E63>S</color><color=#FE5780>K</color>I<color=#00E4CA>P</color>,30014,3,3,315,76,incorrect_answer,1

@@ -1,0 +1,10 @@
+id,title,answer_id,stage,step,score
+1,SKIPしろ！,10001,1,1,0
+2,スキップしろ！,10004,1,2,0
+3,SK<color=#FE5780>I</color>Pしろ！,10008,1,3,0
+4,sKiPしろ！,20005,2,1,0
+5,ス<color=#FE5780>キ</color>ップしろ！,20006,2,2,0
+6,SK<color=#FE5780>I</color><color=#00E4CA>P</color>しろ！,20011,2,3,0
+7,SKiPしろ！,30001,3,1,0
+8,ス<color=#FE5780>キ</color>ッ<color=#00E4CA>プ</color>しろ！,30006,3,2,0
+9,<color=#FF8E63>S</color>K<color=#00E4CA>I</color><color=#FE5780>P</color>しろ！,30012,3,3,0

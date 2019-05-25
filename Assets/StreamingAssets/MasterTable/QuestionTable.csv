@@ -1,4 +1,10 @@
-﻿id,title,answer_id,stage,step,score
-1,<color="blue">SKIP</color>しろ！,11002,1,1,100
-2,スキップしろ！,12002,1,2,200
-3,SK<color=#0000FF>I</color>Pしろ！,13001,1,3,300
+id,title,answer_id,stage,step,score
+1,SKIP<font="FOT-RodinMariaPro-EB SDF">しろ！</font>,10001,1,1,0
+2,<font="FOT-RodinMariaPro-EB SDF">スキップしろ！</font>,10004,1,2,0
+3,SK<color=#FE5780>I</color>P<font="FOT-RodinMariaPro-EB SDF">しろ！</font>,10008,1,3,0
+4,sKiP<font="FOT-RodinMariaPro-EB SDF">しろ！</font>,20005,2,1,0
+5,<font="FOT-RodinMariaPro-EB SDF">ス<color=#FE5780>キ</color>ップしろ！</font>,20006,2,2,0
+6,SK<color=#FE5780>I</color><color=#00E4CA>P</color><font="FOT-RodinMariaPro-EB SDF">しろ！</font>,20011,2,3,0
+7,SKiP<font="FOT-RodinMariaPro-EB SDF">しろ！</font>,30001,3,1,0
+8,<font="FOT-RodinMariaPro-EB SDF">ス<color=#FE5780>キ</color>ッ<color=#00E4CA>プ</color>しろ！</font>,30006,3,2,0
+9,<color=#FF8E63>S</color>K<color=#00E4CA>I</color><color=#FE5780>P</color><font="FOT-RodinMariaPro-EB SDF">しろ！</font>,30012,3,3,0
