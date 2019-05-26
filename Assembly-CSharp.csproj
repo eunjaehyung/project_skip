@@ -63,6 +63,7 @@
      <Compile Include="Assets\Script\InGame\FukidashisController.cs" />
      <Compile Include="Assets\Script\InGame\GameSceneController.cs" />
      <Compile Include="Assets\Script\InGame\LevelManager.cs" />
+     <Compile Include="Assets\Script\InGame\RandomPointsGenerator.cs" />
      <Compile Include="Assets\Script\InGame\StepResult.cs" />
      <Compile Include="Assets\Script\InGame\TitleSceneController.cs" />
      <Compile Include="Assets\Script\MasterData\CsvParser.cs" />

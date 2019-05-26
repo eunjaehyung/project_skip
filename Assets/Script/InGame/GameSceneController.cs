@@ -47,14 +47,11 @@ public class GameSceneController : MonoBehaviour
     // 最大ステップ.
     private int _maxStep = Int32.MaxValue;
 
-    // 現在のステップにおける､正解のAnswerId.
-    private int _currentStepAnswerId;
 
     // 各ステップの結果情報のリスト.
     private List<StepResult> _stepResultList = new List<StepResult>();
 
     // 各種マスタ保持クラス,
-    MasterFukidashiHolder _masterFukidashHolder = null;
     MasterStepHolder _masterStepHolder = null;
 
     public void Awake()
@@ -62,20 +59,20 @@ public class GameSceneController : MonoBehaviour
         Debug.Assert(_fukidashisController != null);
         Debug.Assert(_animCharaController  != null);
         Debug.Assert(_gameResultPanel      != null);
-        // Debug.Assert(_fukidashiPrefab     != null);
-        // Debug.Assert(_canvas              != null);
         Debug.Assert(_textStepTitle        != null);
         Debug.Assert(_timerWidget          != null);
         Debug.Assert(_currentStepText      != null);
         Debug.Assert(_stageImageList.Count == LevelManager.Instance.MaxLevel);
 
-        _masterFukidashHolder = MasterFukidashiHolder.Instance();
         _masterStepHolder     = MasterStepHolder.Instance();
 
         _stageLevel = LevelManager.Instance.Level;
         _currentStep = 1;
         _maxStep = _masterStepHolder.GetMaxStep(_stageLevel);
+    }
 
+    private void Start()
+    {
         // UI関連の初期化.
         _timerWidget.Initialize((int)InGameMaxTime, () => GameEnd() );
         _timerWidget.Start();
@@ -101,7 +98,6 @@ public class GameSceneController : MonoBehaviour
         }
 
         MasterItemStep stepMaster = _masterStepHolder.GetOneOrFail(_stageLevel, _currentStep);
-        _currentStepAnswerId = stepMaster.AnswerId;
         _textStepTitle.text  = stepMaster.Title;
         UpdateCurrentStepText(_currentStep);
         

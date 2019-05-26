@@ -15,6 +15,13 @@ public class FukidashisController : MonoBehaviour
     [SerializeField]
     private Canvas _canvas = null;
 
+    // ランダム座標生成クラス.
+    [SerializeField]
+    private List<RandomPointsGenerator> _randomPointsGenerators = new List<RandomPointsGenerator>();
+    RandomPointsGenerator  _randomPointsGenerator = null;
+
+    private bool _useRandomPoint = true;
+
     [SerializeField]
     private Dictionary<int, float> _levelAndShuffleFreqTime = new Dictionary<int, float>(){
         {1, 7.5f},
@@ -44,8 +51,22 @@ public class FukidashisController : MonoBehaviour
     {
         Debug.Assert(_fukidashiPrefab != null);
         Debug.Assert(_canvas          != null);
+        Debug.Assert(_randomPointsGenerators.Count == LevelManager.Instance.MaxLevel);
 
-        _shuffleFreqTime = _levelAndShuffleFreqTime[LevelManager.Instance.Level];
+        int level = LevelManager.Instance.Level;
+
+        // 座標ランダム生成クラスの初期設定.
+        foreach (var generator in _randomPointsGenerators) {
+            if (generator.Level == level) {
+                generator.gameObject.SetActive(true);
+                _randomPointsGenerator = generator;
+            } else {
+                generator.gameObject.SetActive(false);
+            }
+        }
+        Debug.Assert(_randomPointsGenerator != null);
+
+        _shuffleFreqTime = _levelAndShuffleFreqTime[level];
     }
 
     private void FixedUpdate()
@@ -99,13 +120,21 @@ public class FukidashisController : MonoBehaviour
             onTouch(isSuccess);
         };
 
-        // 
+        // 吹き出しを生成.
         List<MasterItemFukidashi> masterList = MasterFukidashiHolder.Instance().GetList(
             (item) => { return item.Stage == LevelManager.Instance.Level && item.Step == step; }
         );
         foreach (var master in masterList) {
             Fukidashi fukidashi = InstantiateObject(master, onTouchCallBack);
             _fukidashiList.Add(fukidashi);
+        }
+
+        // 吹き出しの座標を､ランダム生成版で上書く.
+        if (_useRandomPoint) {
+            foreach (var fukidashi in _fukidashiList) {
+                fukidashi.GetComponent<RectTransform>().anchoredPosition = _randomPointsGenerator.PickPointRandomly();
+            }
+            _randomPointsGenerator.Reset();
         }
     }
 
