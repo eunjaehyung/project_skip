@@ -160,6 +160,7 @@
      <None Include="Assets\Spine Examples\Spine Skeletons\FootSoldier\license.txt" />
      <None Include="Assets\Spine\version.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Raggedy Spineboy\Raggedy Spineboy.atlas.txt" />
+     <None Include="Assets\Resources\Spine\happy\sd_chara_1001.atlas.txt" />
      <None Include="Assets\Spine Examples\Spine Skeletons\whirlyblendmodes\whirlyblendmodes.atlas.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
@@ -167,7 +168,7 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\Spine Examples\Spine Skeletons\Dragon\dragon.atlas.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
-     <None Include="Assets\Resources\Spine\happy\sd_chara_1001.atlas.txt" />
+     <None Include="Assets\Resources\Spine\happy_old\sd_chara_1001.atlas.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Resources\Spine\ingame_cutin_01\ingame_cutin_01.atlas.txt" />
