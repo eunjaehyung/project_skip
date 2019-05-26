@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 159083599}
   - component: {fileID: 159083601}
   m_Layer: 0
-  m_Name: GameClearPanel
+  m_Name: GameClearPanel_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

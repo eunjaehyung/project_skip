@@ -4,6 +4,13 @@ size: 2048,2048
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
+images/bg_bk
+  rotate: false
+  xy: 1760, 1054
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
 images/bg_under
   rotate: false
   xy: 2, 1156
