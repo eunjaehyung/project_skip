@@ -17,7 +17,7 @@ public class GameSceneController : MonoBehaviour
     private const float NextStepDelayTimeFail = 1.5f;
 
     // このゲームの最大時間 ※この秒以上経過した場合､ゲーム終了.
-    private const float InGameMaxTime = 99.0f;
+    private const float InGameMaxTime =40.0f;
 
     [SerializeField]
     private FukidashisController _fukidashisController = null;
