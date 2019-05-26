@@ -10,7 +10,7 @@ using Spine.Unity;
 [RequireComponent(typeof(RectTransform))]
 [RequireComponent(typeof(SkeletonGraphic))]
 [RequireComponent(typeof(AudioSource))]
-public class FukidashiController : MonoBehaviour
+public class Fukidashi : MonoBehaviour
 {
     // Spineアニメーション名に関する定数.
     [SerializeField]
@@ -43,8 +43,8 @@ public class FukidashiController : MonoBehaviour
     }
 
     // タッチ時コールバック処理.
-    private Action<FukidashiController> _touchCallback = null;
-    public Action<FukidashiController> TouchCallback
+    private Action<Fukidashi> _touchCallback = null;
+    public Action<Fukidashi> TouchCallback
     {
         set { _touchCallback = value; }
     }

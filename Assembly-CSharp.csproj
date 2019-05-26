@@ -59,7 +59,8 @@
      <Compile Include="Assets\Script\Camera\CameraManScript.cs" />
      <Compile Include="Assets\Script\Common\Constants.cs" />
      <Compile Include="Assets\Script\Common\GameUtils.cs" />
-     <Compile Include="Assets\Script\InGame\FukidashiController.cs" />
+     <Compile Include="Assets\Script\InGame\Fukidashi.cs" />
+     <Compile Include="Assets\Script\InGame\FukidashisController.cs" />
      <Compile Include="Assets\Script\InGame\GameSceneController.cs" />
      <Compile Include="Assets\Script\InGame\LevelManager.cs" />
      <Compile Include="Assets\Script\InGame\StepResult.cs" />

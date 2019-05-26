@@ -28,9 +28,9 @@ public class FukidashiSpawner : MonoBehaviour
             SkeletonGraphic skeletonGraphic = fukidashiObj.GetComponent<SkeletonGraphic>();
 
             fukidashiObj.GetComponent<RectTransform>().anchoredPosition = coodinate;
-            var fukidashiController = fukidashiObj.GetComponent<FukidashiController>();
+            var fukidashiController = fukidashiObj.GetComponent<Fukidashi>();
             if (fukidashiController != null) {
-                fukidashiController.TouchCallback = (FukidashiController fukidashi) => {
+                fukidashiController.TouchCallback = (Fukidashi fukidashi) => {
                     Debug.LogFormat("AnswerId:{0}", fukidashi.AnswerId);
                     fukidashi.Success();
                 };

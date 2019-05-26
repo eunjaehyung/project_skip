@@ -19,6 +19,9 @@ public class GameSceneController : MonoBehaviour
     // このゲームの最大時間 ※この秒以上経過した場合､ゲーム終了.
     private const float InGameMaxTime = 99.0f;
 
+    [SerializeField]
+    private FukidashisController _fukidashisController = null;
+
     // 背景キャラ.
     [SerializeField]
     private SkeletonAnimationController _animCharaController = null;
@@ -27,14 +30,6 @@ public class GameSceneController : MonoBehaviour
     [SerializeField]
     private GameObject _gameResultPanel = null;
 
-    // 吹き出しプレハブ.
-    [SerializeField]
-    private GameObject _fukidashiPrefab = null;
-
-    // TODO: 管理するUIが多くなり過ぎているので､別のクラスに切り出すこと.
-    // 各種UIオブジェクト.
-    [SerializeField]
-    private Canvas _canvas = null;
     [SerializeField]
     private TextMeshProUGUI _textStepTitle = null;
     [SerializeField]
@@ -55,9 +50,6 @@ public class GameSceneController : MonoBehaviour
     // 現在のステップにおける､正解のAnswerId.
     private int _currentStepAnswerId;
 
-    // 現在のステップにおける､吹き出しオブジェクトのリスト.
-    private List<FukidashiController> _fukidashiList = new List<FukidashiController>(){};
-
     // 各ステップの結果情報のリスト.
     private List<StepResult> _stepResultList = new List<StepResult>();
 
@@ -67,13 +59,14 @@ public class GameSceneController : MonoBehaviour
 
     public void Awake()
     {
-        Debug.Assert(_animCharaController != null);
-        Debug.Assert(_gameResultPanel     != null);
-        Debug.Assert(_fukidashiPrefab     != null);
-        Debug.Assert(_canvas              != null);
-        Debug.Assert(_textStepTitle       != null);
-        Debug.Assert(_timerWidget         != null);
-        Debug.Assert(_currentStepText     != null);
+        Debug.Assert(_fukidashisController != null);
+        Debug.Assert(_animCharaController  != null);
+        Debug.Assert(_gameResultPanel      != null);
+        // Debug.Assert(_fukidashiPrefab     != null);
+        // Debug.Assert(_canvas              != null);
+        Debug.Assert(_textStepTitle        != null);
+        Debug.Assert(_timerWidget          != null);
+        Debug.Assert(_currentStepText      != null);
         Debug.Assert(_stageImageList.Count == LevelManager.Instance.MaxLevel);
 
         _masterFukidashHolder = MasterFukidashiHolder.Instance();
@@ -83,6 +76,7 @@ public class GameSceneController : MonoBehaviour
         _currentStep = 1;
         _maxStep = _masterStepHolder.GetMaxStep(_stageLevel);
 
+        // UI関連の初期化.
         _timerWidget.Initialize((int)InGameMaxTime, () => GameEnd() );
         _timerWidget.Start();
         UpdateCurrentStepText(_currentStep);
@@ -111,27 +105,7 @@ public class GameSceneController : MonoBehaviour
         _textStepTitle.text  = stepMaster.Title;
         UpdateCurrentStepText(_currentStep);
         
-        CreateFukidashiObjects(step);
-    }
-
-    // TODO: このメソッドは､吹き出し管理クラスを作って､そちらに処理を委譲するべきです.
-    // 各ステップにおける､吹き出しオブジェクトの生成を行う.
-    private void CreateFukidashiObjects(int step)
-    {
-        List<MasterItemFukidashi> masterList = _masterFukidashHolder.GetList(
-            (item) => { return item.Stage == _stageLevel && item.Step == _currentStep; }
-        );
-
-        foreach (var master in masterList) {
-            GameObject fukidashiGameObj = Instantiate(_fukidashiPrefab, _canvas.transform);
-            FukidashiController fukidashiObj = fukidashiGameObj.GetComponent<FukidashiController>();
-            Debug.Assert(fukidashiObj != null);
-
-            fukidashiObj.SetMasterData(master);
-            fukidashiObj.TouchCallback = OnTouchFukidashiObject;
-
-            _fukidashiList.Add(fukidashiObj);
-        }
+        _fukidashisController.InstantiateObjects(step, OnTouchFukidashiObject);
     }
 
     // ゲーム終了時処理を行う.
@@ -141,7 +115,7 @@ public class GameSceneController : MonoBehaviour
         _timerWidget.Stop();
 
         // 残っている吹き出しを削除.
-        ClearFukidashiList();
+        _fukidashisController.ClearObjects();
 
         // キャラのクリア演出.
         _animCharaController.SetAnimation(CharaAnimName.GameClear);
@@ -153,26 +127,8 @@ public class GameSceneController : MonoBehaviour
         _gameResultPanel.GetComponent<GameClearPanel>().SetTexts(_timerWidget.GetRemainTime(), score);
     }
 
-    // 吹き出しオブジェクトタッチ時処理.
-    private void OnTouchFukidashiObject(FukidashiController fukidashiObj)
+    private void OnTouchFukidashiObject(bool isSuccess)
     {
-        if (fukidashiObj.HasTouched) {
-            return;
-        }
-
-        // 正否を判定.
-        bool isSuccess = (_currentStepAnswerId == (int)fukidashiObj.AnswerId);
-
-        // 正否に応じた吹き出しアニメーションetcを実行.
-        if (isSuccess) {
-            fukidashiObj.Success();
-        } else {
-            fukidashiObj.Fail();
-        }
-
-        // 現在のステップの吹き出しは削除.
-        ClearFukidashiList(fukidashiObj);
-
         // 背景キャラに指定のアニメーションをさせる.
         string animationName = (isSuccess) ? CharaAnimName.Success : CharaAnimName.Fail;
         _animCharaController.SetAnimation(animationName);
@@ -186,7 +142,6 @@ public class GameSceneController : MonoBehaviour
             Step       = _currentStep,
             IsSuccess  = isSuccess,
             RemainTime = _timerWidget.GetRemainTime(),
-            AnswerId   = fukidashiObj.AnswerId,
             Score      = score,
         };
         _stepResultList.Add(packege);
@@ -197,19 +152,6 @@ public class GameSceneController : MonoBehaviour
             (isSuccess) ? NextStepDelayTimeSuccess : NextStepDelayTimeFail,
             () => StartStep(_currentStep)
         ));
-    }
-
-    private void ClearFukidashiList(FukidashiController touchedOne = null)
-    {
-        // 現在のステップの吹き出しは削除.
-        foreach (FukidashiController fukidashi in _fukidashiList) {
-            if (touchedOne && touchedOne.AnswerId == fukidashi.AnswerId) {
-                // ※タッチした吹き出しは削除しない(各種アニメーションなどさせるため).
-                continue;
-            }
-            Destroy(fukidashi.gameObject);
-        }
-        _fukidashiList.Clear();
     }
 
     private int SumUpScore()

@@ -671,11 +671,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de897761d41bb4f478c5e2a0d26d9a38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fukidashisController: {fileID: 1607119530}
   _animCharaController: {fileID: 774294031}
   _gameResultPanel: {fileID: 159083597}
-  _fukidashiPrefab: {fileID: 1181273419440658, guid: df23d83d135554b46af8343707ab0b4b,
-    type: 3}
-  _canvas: {fileID: 339537353}
   _textStepTitle: {fileID: 520226506}
   _timerWidget: {fileID: 1889726583}
   _currentStepText: {fileID: 2023539876}
@@ -1430,6 +1428,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 293079060}
+  - {fileID: 1607119531}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3630,6 +3629,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542091149}
   m_CullTransparentMesh: 0
+--- !u!1 &1607119529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607119531}
+  - component: {fileID: 1607119530}
+  m_Layer: 0
+  m_Name: FukidashisController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1607119530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607119529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2e01c1c927d464486bfa37aab96dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fukidashiPrefab: {fileID: 1181273419440658, guid: df23d83d135554b46af8343707ab0b4b,
+    type: 3}
+  _canvas: {fileID: 339537353}
+--- !u!4 &1607119531
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607119529}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 426102471}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1621313741
 GameObject:
   m_ObjectHideFlags: 0
