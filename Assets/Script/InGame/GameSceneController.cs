@@ -37,7 +37,7 @@ public class GameSceneController : MonoBehaviour
     [SerializeField]
     private Text _currentStepText = null;
     [SerializeField]
-    private List<Image> _stageImageList = new List<Image>();
+    private List<TextMeshProUGUI> _stageLabelList = new List<TextMeshProUGUI>();
 
 
     // 今回のゲームのレベル(難易度).
@@ -62,7 +62,7 @@ public class GameSceneController : MonoBehaviour
         Debug.Assert(_textStepTitle        != null);
         Debug.Assert(_timerWidget          != null);
         Debug.Assert(_currentStepText      != null);
-        Debug.Assert(_stageImageList.Count == LevelManager.Instance.MaxLevel);
+        Debug.Assert(_stageLabelList.Count == LevelManager.Instance.MaxLevel);
 
         _masterStepHolder     = MasterStepHolder.Instance();
 
@@ -173,7 +173,7 @@ public class GameSceneController : MonoBehaviour
 
     private void ToggleStageLabelImage(int stage)
     {
-        _stageImageList.Select( (image)  => { image.gameObject.SetActive(false); return image; } );
-        _stageImageList[stage - 1].gameObject.SetActive(true);
+        _stageLabelList.Select( (label)  => { label.gameObject.SetActive(false); return label; } );
+        _stageLabelList[stage - 1].gameObject.SetActive(true);
     }
 }
