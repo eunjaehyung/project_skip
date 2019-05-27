@@ -46,7 +46,7 @@ leg_migi.png
   orig: 77, 172
   offset: 0, 0
   index: -1
-strip
+strip.png
   rotate: false
   xy: 2, 2
   size: 500, 500
