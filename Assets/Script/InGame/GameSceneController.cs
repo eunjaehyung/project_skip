@@ -13,8 +13,8 @@ public class GameSceneController : MonoBehaviour
 {
     // 次のステップ開始までの遅延時間 ※正否アニメーションの尺の違いにより､2パターン用意している.
     // TODO: アニメーション終了時間をハードコーディングするのではなく､雛形となるSkeletonGraphicから値を動的に取得したい.
-    private const float NextStepDelayTimeSuccess = 2.23f;
-    private const float NextStepDelayTimeFail = 1.5f;
+    private const float NextStepDelayTimeSuccess = 2.23f; // 吹き出し正解アニメの終了時間.
+    private const float NextStepDelayTimeFail = 2.67f;    // 背景キャラ失敗アニメの終了時間.
 
     // このゲームの最大時間 ※この秒以上経過した場合､ゲーム終了.
     private const float InGameMaxTime =40.0f;
